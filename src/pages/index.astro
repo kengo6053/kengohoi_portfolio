@@ -1,246 +1,138 @@
 ---
 import { getCollection } from 'astro:content';
 
-// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
+// 共通レイアウト
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Component Imports
-import CallToAction from '../components/CallToAction.astro';
-import Grid from '../components/Grid.astro';
+// トップセクションで使用するコンポーネント
 import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
 import Pill from '../components/Pill.astro';
+import Skills from '../components/Skills.astro';
+import Grid from '../components/Grid.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
 
-// Page section components
-import ContactCTA from '../components/ContactCTA.astro';
-import Skills from '../components/Skills.astro';
-
-// Content Fetching: List four most recent work projects
+// Work 用のプロジェクト一覧（最新 4 件）
 const projects = (await getCollection('work'))
-	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-	.slice(0, 4);
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 4);
 ---
 
 <BaseLayout>
-	<div class="stack gap-20 lg:gap-48">
-		<div class="wrapper stack gap-8 lg:gap-20">
-			<header class="hero">
-				<Hero
-					title="Kengo Hoi"
-					tagline="Welcome to my portfolio!"
-					align="start"
-				>
-					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
-					</div>
-				</Hero>
+  <!-- ================= TOP / HOME ================= -->
+  <section id="home" class="stack gap-20 lg:gap-48">
+    <div class="wrapper stack gap-8 lg:gap-20">
+      <header class="hero">
+        <Hero title="Kengo Hoi" tagline="Welcome to my portfolio!" align="start">
+        </Hero>
+      </header>
+    </div>
+  </section>
 
-			</header>
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="wrapper stack gap-16 lg:gap-24 about-section">
+    <h2>About</h2>
 
-			<Skills />
-		</div>
+    <h3 class="sub-heading">名前</h3>
+    <p>帆井 健悟（Hoi Kengo）</p>
 
-		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="section with-background with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-					<p>Take a look below at some of my featured work for clients from the past few years.</p>
-				</header>
+    <h3 class="sub-heading">学歴</h3>
+    <ul class="timeline">
+      <li><strong>2020/03</strong> 渋谷教育学園幕張高等学校 卒業</li>
+      <li><strong>2025/03</strong> 北海道大学工学部 情報エレクトロニクス学科 情報理工学コース 卒業</li>
+      <li><strong>2025/04</strong> 北海道大学大学院情報科学院 情報理工学コース・調和系工学研究室 在籍（修士1年）</li>
+    </ul>
 
-				<div class="gallery">
-					<Grid variant="offset">
-						{
-							projects.map((project) => (
-								<li>
-									<PortfolioPreview project={project} />
-								</li>
-							))
-						}
-					</Grid>
-				</div>
+    <h3 class="sub-heading">スキル</h3>
+    <ul class="skills-list grid gap-2 md:gap-4" style="list-style:none;">
+      <li>C / C++</li>
+      <li>Python (PyTorch, TensorFlow)</li>
+      <li>Java / Ruby</li>
+      <li>HTML / CSS</li>
+      <li>MATLAB</li>
+      <li>Linux</li>
+      <li>Arduino &amp; Raspberry Pi プロトタイピング</li>
+      <li>Unity / Blender</li>
+    </ul>
 
-				<div class="cta">
-					<CallToAction href="/work/">
-						View All
-						<Icon icon="arrow-right" size="1.2em" />
-					</CallToAction>
-				</div>
-			</section>
+    <h3 class="sub-heading">興味のある技術分野</h3>
+    <p>コンピュータグラフィックス（3DCG / XR など）</p>
+  </section>
 
-			<section class="section with-background bg-variant">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Mentions</h3>
-					<p>
-						I have been fortunate enough to receive praise for my work in several publications. Take
-						a look below to learn more.
-					</p>
-				</header>
+  <!-- ================= WORK ================= -->
+  <section id="work" class="wrapper stack gap-16 lg:gap-24 work-section">
+    <h2>Work</h2>
 
-				<div class="gallery">
-					<Grid variant="small">
-						{
-							['Medium', 'BuzzFeed', 'The Next Web', 'awwwards.', 'TechCrunch'].map((brand) => (
-								<li class="mention-card">
-									<p>{brand}</p>
-								</li>
-							))
-						}
-					</Grid>
-				</div>
-			</section>
-		</main>
+    <!-- 研究 -->
+    <h3 class="sub-heading">研究</h3>
+    <p>
+      ステレオカメラのみを入力とした自動運転 End‑to‑End&nbsp;(E2E) モデルの研究に取り組み、<br />
+      ネットワーク圧縮によるコスト削減と推論高速化を達成しました。<br />
+      Astemo 株式会社との共同研究として&nbsp;2024 年 10 月に開始し、卒業論文までの短期間で成果を創出。<br />
+      国内学会（複雑系マイクロシンポジウム 2025、人工知能学会全国大会&nbsp;JSAI 2025）にて発表済み。
+    </p>
 
-		<ContactCTA />
-	</div>
+    <!-- アルバイト制作 -->
+    <h3 class="sub-heading">アルバイトでの制作</h3>
+    <p>
+      化粧品広告の薬機法チェックを LLM で自動化するプロジェクトに開発メンバーとして参画。<br />
+      コアとなる広告チェック機能を実装し、弁護士事務所・クライアント企業・開発チーム間の調整を経験しました。
+    </p>
+
+    <!-- CG 制作・アドオン開発 -->
+    <h3 class="sub-heading">CG 制作・アドオン開発</h3>
+    <p>
+      Blender でのキャラクターモデリングや、VS Code からスクリプトを簡単に実行できる
+      Blender 用アドオン <code>OpenTextFile</code> を開発。
+      3DCG 制作フローを効率化するツール開発と表現の両面でスキルを磨いています。
+      （<a href="https://github.com/kengo6053/OpenTextFile" target="_blank" rel="noopener">GitHub リポジトリ</a>）
+    </p>
+
+    <!-- 最近のプロジェクトギャラリー -->
+    <h3 class="sub-heading">Recent Projects</h3>
+    <Grid variant="offset">
+      {
+        projects.map((project) => (
+          <li>
+            <PortfolioPreview project={project} />
+          </li>
+        ))
+      }
+    </Grid>
+  </section>
 </BaseLayout>
 
 <style>
-	.hero {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 2rem;
-	}
-
-	.roles {
-		display: none;
-	}
-
-	.hero img {
-		aspect-ratio: 5 / 4;
-		object-fit: cover;
-		object-position: top;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
-	}
-
-	@media (min-width: 50em) {
-		.hero {
-			display: grid;
-			grid-template-columns: 6fr 4fr;
-			padding-inline: 2.5rem;
-			gap: 3.75rem;
-		}
-
-		.roles {
-			margin-top: 0.5rem;
-			display: flex;
-			gap: 0.5rem;
-		}
-
-		.hero img {
-			aspect-ratio: 3 / 4;
-			border-radius: 4.5rem;
-			object-fit: cover;
-		}
-	}
-
-	/* ====================================================== */
-
-	.section {
-		display: grid;
-		gap: 2rem;
-	}
-
-	.with-background {
-		position: relative;
-	}
-
-	.with-background::before {
-		--hero-bg: var(--bg-image-subtle-2);
-
-		content: '';
-		position: absolute;
-		pointer-events: none;
-		left: 50%;
-		width: 100vw;
-		aspect-ratio: calc(2.25 / var(--bg-scale));
-		top: 0;
-		transform: translateY(-75%) translateX(-50%);
-		background:
-			url('/assets/backgrounds/noise.png') top center/220px repeat,
-			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
-			var(--gray-999);
-		background-blend-mode: overlay, normal, normal, normal;
-		mix-blend-mode: var(--bg-blend-mode);
-		z-index: -1;
-	}
-
-	.with-background.bg-variant::before {
-		--hero-bg: var(--bg-image-subtle-1);
-	}
-
-	.section-header {
-		justify-self: center;
-		text-align: center;
-		max-width: 50ch;
-		font-size: var(--text-md);
-		color: var(--gray-300);
-	}
-
-	.section-header h3 {
-		font-size: var(--text-2xl);
-	}
-
-	@media (min-width: 50em) {
-		.section {
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
-			gap: 5rem;
-		}
-
-		.section.with-cta {
-			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
-		}
-
-		.section-header {
-			grid-area: header;
-			font-size: var(--text-lg);
-		}
-
-		.section-header h3 {
-			font-size: var(--text-4xl);
-		}
-
-		.with-cta .section-header {
-			justify-self: flex-start;
-			text-align: left;
-		}
-
-		.gallery {
-			grid-area: gallery;
-		}
-
-		.cta {
-			grid-area: cta;
-		}
-	}
-
-	/* ====================================================== */
-
-	.mention-card {
-		display: flex;
-		height: 7rem;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		border: 1px solid var(--gray-800);
-		border-radius: 1.5rem;
-		color: var(--gray-300);
-		background: var(--gradient-subtle);
-		box-shadow: var(--shadow-sm);
-	}
-
-	@media (min-width: 50em) {
-		.mention-card {
-			border-radius: 1.5rem;
-			height: 9.5rem;
-		}
-	}
+  /* ------- About Section ------- */
+  .sub-heading {
+    font-weight: 600;
+    margin-top: 1.25rem;
+  }
+  .timeline {
+    display: grid;
+    gap: .25rem;
+    list-style: none;
+    padding-left: 0;
+  }
+  .timeline li {
+    position: relative;
+    padding-left: 1.75rem;
+  }
+  .timeline li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .5em;
+    width: .65em;
+    height: .65em;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .skills-list {
+    grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
+  }
+  /* ------- Sections Spacing ------- */
+  #about, #work {
+    margin-top: 6rem;
+  }
 </style>
