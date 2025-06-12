@@ -1,5 +1,18 @@
-git commit -m "init: astro-portfolio"{
+{
+  // ① Astro が用意する厳格設定を継承
   "extends": "astro/tsconfigs/strict",
+
+  // ② 任意：パスエイリアス（例では "@/..." → "./src/..."）
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+
+  // ③ Astro が生成する型宣言ファイルと全ソースを対象に
   "include": [".astro/types.d.ts", "**/*"],
+
+  // ④ 本番ビルド成果物は除外
   "exclude": ["dist"]
 }
