@@ -20,7 +20,7 @@ const { title, description } = Astro.props;
 		<MainHead title={title} description={description} />
 	</head>
 	<body>
-		<div class="stack backgrounds">
+		<div class="stack backgrounds simple-bg bg-sky-100">
 			<Nav />
 			<slot />
 			<Footer />
@@ -112,6 +112,10 @@ const { title, description } = Astro.props;
 					background-blend-mode: none;
 					--bg-gradient-size: none;
 				}
+			}
+			.simple-bg {
+				background: var(--tw-bg-opacity,1) currentColor !important;  /* Tailwind の bg-* がそのまま出る */
+				background-blend-mode: normal !important;
 			}
 		</style>
 	</body>
