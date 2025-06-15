@@ -26,185 +26,186 @@ const projects = (await getCollection('work'))
 ---
 
 <BaseLayout>
-	<div class="stack gap-20 lg:gap-24">
-		<div class="wrapper stack gap-8 lg:gap-20">
-			<header class="hero">
-				<Hero
-					title="Kengo Hoi"
-					tagline="Welcome to my portfolio!"
-					align="center"
-				>
-				</Hero>
-			</header>
-		</div>
-
-		<!-- ========= ABOUT ========= -->
-		<section id="about">
-			<div class="wrapper stack gap-12 lg:gap-10">
-
-				<!-- セクション見出し -->
+	<div class="page-spacing">
+		<div class="stack gap-30 lg:gap-24">
+			<div class="wrapper stack gap-8 lg:gap-20">
 				<header class="hero">
-				<Hero
-					title="about"
-					tagline="私の簡単な自己紹介です。"
-					align="center"
-				/>
+					<Hero
+						title="Kengo Hoi"
+						tagline="Welcome to my portfolio!"
+						align="center"
+					>
+					</Hero>
 				</header>
+			</div>
 
-				<!-- ========== 本体：左写真 / 右プロフィール ========== -->
-				<div class="profile-grid">
-				<!-- 左：写真 -->
-				<div class="profile-photo">
-					<img
-					src="/assets/images/profile.jpg"
-					alt="Hoi Kengo portrait"
-					width="320"
-					height="320"
-					loading="lazy"
+			<!-- ========= ABOUT ========= -->
+			<section id="about" class="section-space">
+				<div class="wrapper stack gap-12 lg:gap-10">
+
+					<!-- セクション見出し -->
+					<header class="hero">
+					<Hero
+						title="About"
+						tagline="私の簡単な自己紹介です。"
+						align="center"
 					/>
+					</header>
+
+					<!-- ========== 本体：左写真 / 右プロフィール ========== -->
+					<div class="profile-grid">
+					<!-- 左：写真 -->
+					<div class="profile-photo">
+						<img
+						src="/images/my_photo
+						.jpg"
+						alt="Hoi Kengo portrait"
+						width="320"
+						height="320"
+						loading="lazy"  
+						/>
+					</div>
+
+					<!-- 右：プロフィールテキスト -->
+					<div class="profile-text">
+						<p><strong>名前：</strong>帆井 健悟 (Hoi&nbsp;Kengo)</p>
+						
+						<br>
+						
+						<p>
+						<strong>学歴：</strong><br />
+						・2020/03 渋谷教育学園幕張高等学校 卒業<br />
+						・2025/03 北海道大学 工学部 情報エレクトロニクス学科 情報理工学コース 卒業<br />
+						・2025/04 北海道大学大学院 情報科学院 情報理工学コース 調和系工学研究室 在籍 (修士1年)
+						</p>
+
+						<br>
+						
+						<p>
+						<strong>興味のある技術分野：</strong><br />
+						3DCG・XR・Interactive&nbsp;Graphics
+						</p>
+					</div>
+					</div>
 				</div>
+			</section>
 
-				<!-- 右：プロフィールテキスト -->
-				<div class="profile-text">
-					<p><strong>名前：</strong>帆井 健悟 (Hoi&nbsp;Kengo)</p>
+			<!-- ========= Skills ========= -->
+			<section id="Skills" class="section-space">
+				<div class="wrapper stack gap-12 lg:gap-10">
 
-					<p>
-					<strong>学歴：</strong><br />
-					・2020/03 渋谷教育学園幕張高等学校 卒業<br />
-					・2025/03 北海道大学 工学部 情報エレクトロニクス学科 情報理工学コース 卒業<br />
-					・2025/04 北海道大学大学院 情報科学院 情報理工学コース 調和系工学研究室 在籍 (修士1年)
-					</p>
+					<!-- セクション見出し -->
+					<header class="hero">
+					<Hero
+						title="Skills"
+						tagline="自分が持つスキルについての紹介です。"
+						align="center"
+					/>
+					</header>
 
-					<p>
-					<strong>スキル：</strong><br />
-					C / HTML・CSS / Java / MATLAB / Python / Ruby / Linux /
-					AIライブラリ (TensorFlow, PyTorch) / Arduino ほか
-					</p>
 
-					<p>
-					<strong>興味のある技術分野：</strong><br />
-					3DCG・XR・Interactive&nbsp;Graphics
-					</p>
+					<!-- 右：プロフィールテキスト -->
+					<div class="profile-text">
+						<p>
+						<strong>スキル：</strong><br />
+						C / HTML・CSS / Java / MATLAB / Python / Ruby / Linux /
+						AIライブラリ (TensorFlow, PyTorch) / Arduino ほか
+						</p>
+
+						<p>
+						<strong>興味のある技術分野：</strong><br />
+						3DCG・XR・Interactive&nbsp;Graphics
+						</p>
+					</div>
 				</div>
+			</section>
+
+			<!-- ========= Works ========= -->
+			<section id="works"  class="section-space">
+				<div class="wrapper stack gap-12 lg:gap-10">
+
+					<!-- セクション見出し -->
+					<header class="hero">
+					<Hero
+						title="Works"
+						tagline="自分のこれまでの制作・活動実績を紹介します"
+						align="center"
+					/>
+					</header>
+
+					<!-- ========= WORK LIST ========= -->
+					<div class="works-grid">
+
+					<!-- 1. ステレオカメラ E2E 自動運転研究 -->
+					<article class="work-card">
+						<h3>ステレオカメラを用いたE2E自動運転モデル</h3>
+						<p class="meta">
+						<span>北海道大学 / Astemo (共同研究)</span>
+						<span>2023-10 – Present</span>
+						</p>
+
+						<p>
+						従来の多センサ構成をステレオカメラ <em>単一</em> に集約し、
+						TransFuser を改良して画像＋点群から加速度を予測する軽量
+						E2E モデルを開発。<br />
+						13 万フレームで学習した追従走行タスクで実用水準の性能を確認し、
+						ステレオ専用アプローチの可能性を示唆。
+						</p>
+
+						<ul>
+						<li>課題定義・検証設計・モデル設計をワンストップで推進</li>
+						<li>大規模データ前処理を自動化するパイプラインを構築</li>
+						<li>社内発表で<strong>高評価</strong>を獲得、継続開発中</li>
+						</ul>
+					</article>
+
+					<!-- 2. 広告薬機法チェック LLM 自動化 -->
+					<article class="work-card">
+						<h3>LLMを用いた薬機法チェック自動化システム</h3>
+						<p class="meta">
+						<span>受託開発 / 化粧品広告</span>
+						<span>2024-04 – 2024-08</span>
+						</p>
+
+						<p>
+						化粧品広告が薬機法に抵触しないかを
+						<strong>大規模言語モデル</strong>で自動判定する Web サービスを
+						2 名体制で開発。私は判定ロジックと API 連携を担当。
+						</p>
+
+						<ul>
+						<li>プロトタイプ → フィードバック → 改善を隔週で反復</li>
+						<li>弁護士事務所・仲介企業など多様な利害関係者と調整</li>
+						<li>納期内リリース達成、運用コストを大幅削減</li>
+						</ul>
+					</article>
+
+					<!-- 3. アボカド価格予測 ML コンペ -->
+					<article class="work-card">
+						<h3>アボカド価格予測機械学習コンペ</h3>
+						<p class="meta">
+						<span>大学授業プロジェクト</span>
+						<span>2023-01 – 2023-02</span>
+						</p>
+
+						<p>
+						3 名チームで米国アボカド価格を予測。
+						私は<strong>ベースコード</strong>を整備し、特徴量設計・
+						ハイパーパラメータ探索を効率化。未経験チームながら
+						20 チーム中<strong>6位</strong>を獲得。
+						</p>
+
+						<ul>
+						<li>LightGBM / XGBoost / CatBoost を並列で評価</li>
+						<li>GitHub + Issues でタスク管理、全員の生産性を底上げ</li>
+						<li>リーダーシップとドキュメンテーションの重要性を学習</li>
+						</ul>
+					</article>
+
+					</div>
 				</div>
-			</div>
-		</section>
-
-		<!-- ========= Skills ========= -->
-		<section id="Skills">
-			<div class="wrapper stack gap-12 lg:gap-10">
-
-				<!-- セクション見出し -->
-				<header class="hero">
-				<Hero
-					title="Skills"
-					tagline="自分が持つスキルについての紹介です。"
-					align="center"
-				/>
-				</header>
-
-
-				<!-- 右：プロフィールテキスト -->
-				<div class="profile-text">
-					<p>
-					<strong>スキル：</strong><br />
-					C / HTML・CSS / Java / MATLAB / Python / Ruby / Linux /
-					AIライブラリ (TensorFlow, PyTorch) / Arduino ほか
-					</p>
-
-					<p>
-					<strong>興味のある技術分野：</strong><br />
-					3DCG・XR・Interactive&nbsp;Graphics
-					</p>
-				</div>
-			</div>
-		</section>
-
-		<!-- ========= Works ========= -->
-		<section id="works"  class="py-10 lg:py-24  mb-20 lg:mb-24">
-			<div class="wrapper stack gap-12 lg:gap-10">
-
-				<!-- セクション見出し -->
-				<header class="hero">
-				<Hero
-					title="works"
-					tagline="自分のこれまでの制作・活動実績を紹介します"
-					align="center"
-				/>
-				</header>
-
-				<!-- ========= WORK LIST ========= -->
-				<div class="works-grid">
-
-				<!-- 1. ステレオカメラ E2E 自動運転研究 -->
-				<article class="work-card">
-					<h3>ステレオカメラを用いた<br class="sm:hidden" />E2E自動運転モデル</h3>
-					<p class="meta">
-					<span>北海道大学 / Astemo (共同研究)</span>
-					<span>2023-10 – Present</span>
-					</p>
-
-					<p>
-					従来の多センサ構成をステレオカメラ <em>単一</em> に集約し、
-					TransFuser を改良して画像＋点群から加速度を予測する軽量
-					E2E モデルを開発。<br />
-					13 万フレームで学習した追従走行タスクで実用水準の性能を確認し、
-					ステレオ専用アプローチの可能性を示唆。
-					</p>
-
-					<ul>
-					<li>課題定義・検証設計・モデル設計をワンストップで推進</li>
-					<li>大規模データ前処理を自動化するパイプラインを構築</li>
-					<li>社内発表で<strong>高評価</strong>を獲得、継続開発中</li>
-					</ul>
-				</article>
-
-				<!-- 2. 広告薬機法チェック LLM 自動化 -->
-				<article class="work-card">
-					<h3>薬機法チェック<br class="sm:hidden" />自動化システム (LLM)</h3>
-					<p class="meta">
-					<span>受託開発 / 化粧品広告</span>
-					<span>2024-04 – 2024-08</span>
-					</p>
-
-					<p>
-					化粧品広告が薬機法に抵触しないかを
-					<strong>大規模言語モデル</strong>で自動判定する Web サービスを
-					2 名体制で開発。私は判定ロジックと API 連携を担当。
-					</p>
-
-					<ul>
-					<li>プロトタイプ → フィードバック → 改善を隔週で反復</li>
-					<li>弁護士事務所・仲介企業など多様な利害関係者と調整</li>
-					<li>納期内リリース達成、運用コストを大幅削減</li>
-					</ul>
-				</article>
-
-				<!-- 3. アボカド価格予測 ML コンペ -->
-				<article class="work-card">
-					<h3>アボカド価格予測<br class="sm:hidden" />機械学習コンペ</h3>
-					<p class="meta">
-					<span>大学授業プロジェクト</span>
-					<span>2023-01 – 2023-02</span>
-					</p>
-
-					<p>
-					3 名チームで米国アボカド価格を予測。
-					私は<strong>ベースコード</strong>を整備し、特徴量設計・
-					ハイパーパラメータ探索を効率化。未経験チームながら
-					20 チーム中<strong>6位</strong>を獲得。
-					</p>
-
-					<ul>
-					<li>LightGBM / XGBoost / CatBoost を並列で評価</li>
-					<li>GitHub + Issues でタスク管理、全員の生産性を底上げ</li>
-					<li>リーダーシップとドキュメンテーションの重要性を学習</li>
-					</ul>
-				</article>
-
-				</div>
-			</div>
-		</section>
+			</section>
+		</div>
 	</div>
 </BaseLayout>
 
@@ -371,10 +372,13 @@ const projects = (await getCollection('work'))
 		.profile-grid {
 		display: grid;
 		grid-template-columns: 2fr 3fr;
-		align-items: start;
+		align-items: center; 
 		text-align: left;
 		gap: 3rem;
 		}
+		.page-spacing {
+    		padding-block: 6rem; /* 上下 96px */
+  		}
 	}
 
 	/* ========= 写真スタイル ========= */
@@ -385,6 +389,7 @@ const projects = (await getCollection('work'))
 		object-fit: cover;
 		border-radius: 1.5rem;
 		box-shadow: var(--shadow-md);
+		align-items: center; 
 	}
 
 	/* テキスト側の幅と行間を整える */
@@ -395,7 +400,8 @@ const projects = (await getCollection('work'))
 
 	/* ===== Works grid ===== */
 	.works-grid {
-		display: grid;
+		display: flex; 
+		flex-direction: column;
 		gap: 3rem;
 	}
 	@media (min-width: 50em) {
@@ -436,6 +442,9 @@ const projects = (await getCollection('work'))
 		list-style: disc;
 		padding-left: 1.25rem;
 		line-height: 1.6;
+	}
+	.page-spacing {
+  		padding-block: 4rem;   /* 上下 64px の余白 */
 	}
 
 

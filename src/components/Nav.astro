@@ -5,9 +5,9 @@ import type { iconPaths } from './IconPaths';
 
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
-	{ label: 'Home', href: '/' },
-	{ label: 'Work', href: '/work/' },
-	{ label: 'About', href: '/about/' },
+	{ label: 'About',  href: '#about'  },   
+	{ label: 'Skills', href: '#Skills' },   
+	{ label: 'Works',  href: '#works'  },   
 ];
 
 /** Icon links to social media — edit these with links to your profiles! */
@@ -22,10 +22,14 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 
 /** Test if a link is pointing to the current page. */
 const isCurrentPage = (href: string) => {
+	if (href.startsWith('#')) {
+	 if (typeof window === 'undefined') return false;
+	 return window.location.hash === href;
+	}
 	let pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
 	if (pathname.at(0) !== '/') pathname = '/' + pathname;
 	if (pathname.at(-1) !== '/') pathname += '/';
-	return pathname === href || (href !== '/' && pathname.startsWith(href));
+	return pathname === href;
 };
 ---
 
@@ -146,7 +150,7 @@ const isCurrentPage = (href: string) => {
 		font-family: var(--font-brand);
 		font-weight: 500;
 		margin-bottom: 3.5rem;
-	}
+	} 
 
 	.menu-header {
 		display: flex;
