@@ -23,6 +23,49 @@ const projects = (await getCollection('work'))
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
+
+const skills = [
+  {
+    name: 'C',
+    level: 5,
+    desc: '実装で生産管理システムのバックエンド開発に使用。新人教育も担当しました。',
+  },
+  {
+    name: 'HTML / CSS',
+    level: 4,
+    desc: 'LP・ブログのマークアップを多数経験し、アクセシビリティを重視。',
+  },
+  {
+    name: 'Java',
+    level: 3,
+    desc: '大学講義とチーム開発で MVC アプリを実装。',
+  },
+  {
+    name: 'Python',
+    level: 4,
+    desc: '研究で E2E 自動運転モデルを実装。PyTorch が主力。',
+  },
+  {
+    name: 'TensorFlow / PyTorch',
+    level: 4,
+    desc: 'ディープラーニング案件で推論パイプラインを構築。',
+  },
+  {
+    name: 'MATLAB',
+    level: 3,
+    desc: '研究初期の画像処理アルゴリズムのプロトタイピングに使用。',
+  },
+  {
+    name: 'Linux',
+    level: 4,
+    desc: '日常的に Arch Linux。サーバ運用・シェルスクリプトが得意。',
+  },
+  {
+    name: 'Arduino',
+    level: 2,
+    desc: '趣味で簡易 IoT ガジェットを製作。C++ によるファーム実装。',
+  },
+];
 ---
 
 <BaseLayout>
@@ -90,33 +133,21 @@ const projects = (await getCollection('work'))
 				</div>
 			</section>
 
-			<!-- ========= Skills ========= -->
+			<!-- ===== Skills ===== -->
 			<section id="Skills" class="section-space">
-				<div class="wrapper stack gap-12 lg:gap-10">
-
-					<!-- セクション見出し -->
-					<header class="hero">
-					<Hero
-						title="Skills"
-						tagline="自分が持つスキルについての紹介です。"
-						align="center"
-					/>
-					</header>
-
-
-					<!-- 右：プロフィールテキスト -->
-					<div class="profile-text">
-						<p>
-						<strong>スキル：</strong><br />
-						C / HTML・CSS / Java / MATLAB / Python / Ruby / Linux /
-						AIライブラリ (TensorFlow, PyTorch) / Arduino ほか
-						</p>
-
-						<p>
-						<strong>興味のある技術分野：</strong><br />
-						3DCG・XR・Interactive&nbsp;Graphics
-						</p>
+				<div class="wrapper stack gap-14 lg:gap-12">
+				<header class="hero-center">
+					<Hero title="Skills" tagline="自分が持つスキルについての紹介です。" align="center" />
+				</header>
+				<div class="skills-grid">
+					{skills.map(({name, level, desc}) => (
+					<div class="skill-card">
+						<h3>{name}</h3>
+						<p class="stars">{'★'.repeat(level)}{'☆'.repeat(5-level)}</p>
+						<p class="desc">{desc}</p>
 					</div>
+					))}
+				</div>
 				</div>
 			</section>
 
@@ -128,7 +159,7 @@ const projects = (await getCollection('work'))
 					<header class="hero">
 					<Hero
 						title="Works"
-						tagline="自分のこれまでの制作・活動実績を紹介します"
+						tagline="自分のこれまでの制作・活動実績を紹介します。"
 						align="center"
 					/>
 					</header>
@@ -137,7 +168,7 @@ const projects = (await getCollection('work'))
 					<div class="works-grid">
 
 					<!-- 1. ステレオカメラ E2E 自動運転研究 -->
-					<article class="work-card">
+					<article class="work-card" data-modal="modal-e2e">
 						<h3>ステレオカメラを用いたE2E自動運転モデル</h3>
 						<p class="meta">
 						<span>北海道大学 / Astemo (共同研究)</span>
@@ -157,7 +188,16 @@ const projects = (await getCollection('work'))
 						<li>大規模データ前処理を自動化するパイプラインを構築</li>
 						<li>社内発表で<strong>高評価</strong>を獲得、継続開発中</li>
 						</ul>
+						…
 					</article>
+
+					
+					<dialog id="modal-e2e" class="work-modal">
+						<button class="close" aria-label="閉じる">×</button>
+						<h3>ステレオカメラを用いた E2E 自動運転モデル</h3>
+						<p class="meta"><span>北海道大学 / Astemo (共同研究)</span><span>2023-10 – Present</span></p>
+						<p>ここに**より詳しい説明**を好きなだけ書けます。画像やリンク、コードなども可。</p>
+					</dialog>
 
 					<!-- 2. 広告薬機法チェック LLM 自動化 -->
 					<article class="work-card">
@@ -205,6 +245,25 @@ const projects = (await getCollection('work'))
 					</div>
 				</div>
 			</section>
+
+			<script is:inline>
+			/* 開く */
+			document.querySelectorAll('.work-card').forEach(card => {
+			card.addEventListener('click', () => {
+				const id = card.dataset.modal;
+				const dlg = document.getElementById(id);
+				if (dlg) dlg.showModal();
+			});
+			});
+
+			/* 閉じる（× ボタン or 背景クリック） */
+			document.querySelectorAll('.work-modal').forEach(dlg => {
+			dlg.addEventListener('click', e => {
+				if (e.target.classList.contains('close') || e.target === dlg) dlg.close();
+			});
+			});
+			</script>
+
 		</div>
 	</div>
 </BaseLayout>
@@ -370,17 +429,19 @@ const projects = (await getCollection('work'))
 	/* 大画面では左写真・右テキストの２カラム */
 	@media (min-width: 50em) {
 		.profile-grid {
-		display: grid;
-		grid-template-columns: 2fr 3fr;
-		align-items: center; 
-		text-align: left;
-		gap: 3rem;
+			display: grid;
+			grid-template-columns: 2fr 3fr;
+			align-items: center; 
+			text-align: left;
+			gap: 3rem;
 		}
-		.page-spacing {
-    		padding-block: 6rem; /* 上下 96px */
-  		}
 	}
 
+	.page-spacing { padding-block: 4rem; }     /* モバイル基準 */
+	@media (min-width: 50em) {
+		.page-spacing { padding-block: 6rem; }   /* 大画面で拡大 */
+	}
+	
 	/* ========= 写真スタイル ========= */
 	.profile-photo img {
 		width: 100%;
@@ -447,5 +508,99 @@ const projects = (await getCollection('work'))
   		padding-block: 4rem;   /* 上下 64px の余白 */
 	}
 
+	/***********************  Global helpers  ***********************/
+	.section-space{padding-block:6rem;}
+	.hero-center{display:flex;flex-direction:column;align-items:center;text-align:center;
+	  margin-bottom: 3rem;   /* 例: 2.5rem ≒ 40px */}
+	.wrapper{max-width:1200px;margin-inline:auto;padding-inline:1rem;}
+
+	/***********************  Skills grid  *************************/
+	.skills-grid{
+		display:grid;
+		grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+		gap:1.5rem;
+		margin-inline:auto;
+		max-width:1200px;
+	}
+	.skill-card{
+		background:var(--gray-950);
+		border:1px solid var(--gray-800);
+		border-radius:1rem;
+		padding:1.5rem;
+		box-shadow:var(--shadow-sm);
+		transition:transform .2s,box-shadow .2s;
+	}
+	.skill-card:hover{
+		transform:translateY(-4px);
+		box-shadow:var(--shadow-md);
+	}
+	.skill-card h3{font-size:1.1rem;margin:0 0 .25rem 0;color:var(--gray-0);}
+	.stars{color:var(--accent-regular);letter-spacing:.1em;margin-bottom:.5rem;}
+	.desc{font-size:.875rem;line-height:1.5;color:var(--gray-300);}  
+
+	@media(min-width:50em){
+		.skills-grid{grid-template-columns:repeat(3,1fr);} /* 1行3つ固定 */
+	}
+
+	/* ===== Work modal (common) ===== */
+	.work-modal{
+	position: fixed;
+	top: 50%; left: 50%;
+	transform: translate(-50%, -50%);
+	width: min(90vw, 760px);
+	max-height: 80vh;
+	overflow-y: auto;
+	padding: 2.5rem 3rem;
+	border: none;
+	border-radius: 1rem;
+	box-shadow: 0 14px 45px rgba(0,0,0,.55);
+	z-index: 1000;
+	}
+
+	/* === 1) ライトモード用 === */
+	@media (prefers-color-scheme: light) {
+	.work-modal{
+		background: #ffffff;          /* 真っ白いカード */
+		color: #111111;               /* 濃い文字色 */
+	}
+	.work-modal::backdrop{
+		background: #ffffff;    /* 背景を暗く */
+	}
+	}
+
+	/* === 2) ダークモード用 === */
+	@media (prefers-color-scheme: dark) {
+	.work-modal{
+		background: #1a1a1a;          /* 濃いグレーのカード */
+		color: #f2f2f2;               /* 明るい文字色 */
+	}
+	.work-modal::backdrop{
+		background: rgba(0,0,0,.75);  /* もう少し暗めでも可 */
+	}
+	}
+
+	/* 閉じるボタン（共通） */
+	.work-modal .close{
+	position: absolute;
+	top: .75rem;
+	right: .75rem;
+	background: none;
+	border: none;
+	font-size: 1.5rem;
+	cursor: pointer;
+	color: inherit;                 /* モードに合わせて自動で変わる */
+	}
+
+	/* ===== Safari など dialog 未対応ブラウザ用 ===== */
+	@supports not (backdrop-filter:none) {
+	.work-modal{
+		inset: 0;
+		margin: auto;
+		transform: none;
+		display: none;
+	}
+	.work-modal[open]{display:block;}
+	.work-modal::backdrop{content:'';position:fixed;inset:0;}
+	}
 
 </style>
