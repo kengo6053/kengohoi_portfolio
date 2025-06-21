@@ -277,8 +277,8 @@ const isCurrentPage = (href: string) => {
 			gap: 1rem;
 			position: sticky;   /* スクロールに追従 */
 			top: 0;             /* 画面上端に貼り付け */
-			background: rgba(255, 255, 255, 0.75);
-			backdrop-filter: blur(8px);
+			background: var(--gray-999);             /* または完全に透明なら 'transparent' */
+			backdrop-filter: none;                   /* 上の行削除でも可 */
 		}
 
 		.menu-header {
