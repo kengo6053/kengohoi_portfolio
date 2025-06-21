@@ -26,14 +26,14 @@ const projects = (await getCollection('work'))
 
 const skills = [
   {
-    name: 'Python（PyTorch など AI 系ライブラリ含む）',
+    name: 'Python',
     level: 4,
     desc:
       '経験 4 年。自動運転 E2E モデルの構築や、広告 PDF を OCR → 各行を LLM で評価するシステムのコア開発を担当。大学授業の機械学習コンペ（アボカド価格予測）でもチームで活用。',
   },
   {
     name: 'Blender',
-    level: 2,
+    level: 3,
     desc:
       '使用歴 1 年程度。自作キャラクターモデルや西洋風の街並みなど簡単な環境モデルを制作。今後も積極的に制作予定。',
   },
@@ -41,7 +41,7 @@ const skills = [
     name: 'Linux（WSL2）',
     level: 4,
     desc:
-      '開発環境として WSL2 を 4 年間使用。シェルスクリプトを含む開発全般が得意。',
+      '開発環境として WSL2 を 4 年間使用。シェルスクリプトを含む開発全般を経験。',
   },
   {
     name: 'Ruby',
@@ -59,7 +59,7 @@ const skills = [
     name: 'C',
     level: 4,
     desc:
-      '授業・ティーチングアシスタントで累計 3 年使用。低レイヤ実装に対応。',
+      '授業・ティーチングアシスタントで累計 3 年使用。',
   },
   {
     name: 'Java',
@@ -71,11 +71,11 @@ const skills = [
     name: 'MATLAB',
     level: 2,
     desc:
-      '授業で 6 か月使用し、画像処理アルゴリズムをプロトタイピング。',
+      '授業で 6 か月使用し、画像処理や音源分離のプログラムを勉強。',
   },
   {
     name: 'Unity',
-    level: 2,
+    level: 1,
     desc:
       'Blender で作成したキャラクターモデルを動かすために 2 か月使用。',
   },
@@ -114,8 +114,7 @@ const skills = [
 					<!-- 左：写真 -->
 					<div class="profile-photo">
 						<img
-						src="/images/my_photo
-						.jpg"
+						src="/images/my_photo.jpg"
 						alt="Hoi Kengo portrait"
 						width="320"
 						height="320"
@@ -125,15 +124,22 @@ const skills = [
 
 					<!-- 右：プロフィールテキスト -->
 					<div class="profile-text">
-						<p><strong>名前：</strong>帆井 健悟 (Hoi&nbsp;Kengo)</p>
+						<p><strong>名前：</strong>帆井 健悟</p>
 						
 						<br>
 						
 						<p>
 						<strong>学歴：</strong><br />
-						・2020/03 渋谷教育学園幕張高等学校 卒業<br />
-						・2025/03 北海道大学 工学部 情報エレクトロニクス学科 情報理工学コース 卒業<br />
-						・2025/04 北海道大学大学院 情報科学院 情報理工学コース 調和系工学研究室 在籍 (修士1年)
+						・2020/03    渋谷教育学園幕張高等学校 卒業<br />
+						・2025/03    北海道大学 工学部 情報エレクトロニクス学科 情報理工学コース 卒業<br />
+						・2025/04~   北海道大学大学院 情報科学院 情報理工学コース 調和系工学研究室 在籍 (現在修士1年)
+						</p>
+
+						<br>
+						
+						<p>
+						<strong>趣味：</strong><br />
+						ランニング・CG制作
 						</p>
 
 						<br>
@@ -196,11 +202,9 @@ const skills = [
 						</p>
 
 						<ul>
-						<li>従来の多センサ構成をステレオカメラ <em>単一</em> に集約し、
-						TransFuser を改良して画像＋点群から加速度を予測する軽量
-						E2E モデルを開発。</li>
-						<li>13 万フレームで学習した追従走行タスクで実用水準の性能を確認し、
-						ステレオ専用アプローチの可能性を示唆。</li>
+						<li>Astemo社との共同研究で、TransFuserを改良しステレオカメラの視差点群から加速度を直接予測するE2E自動運転モデルを開発</li>
+						<li>13万フレームの実車データでオープンループ評価により日常追従性能を実証。</li>
+						<li>今後の展望として、クローズドループ評価と他運転タスクへの適用を検討。</li>
 						</ul>
 					</article>
 
@@ -215,7 +219,7 @@ const skills = [
 						<h3>ステレオカメラを用いた E2E 自動運転モデル</h3>
 						<p class="meta">
 						<span>研究室での研究（Astemo株式会社との共同研究）　</span>
-						<span>2024-10 – 現在</span>
+						<span>（2024-10 – 現在）</span>
 						</p>
 
 						<br>
@@ -225,7 +229,23 @@ const skills = [
 						センサ構成の変更によるモデルの得失の考察
 						</p>
 						<br>
+
 						<p>
+						<strong>使用技術：</strong><br>
+						<ul>
+						<li>言語：python</li>
+						</ul>
+						</p>
+						<br>
+
+						<figure class="work-image">
+							<img
+								src="/images/Proposed_method.png"
+								alt="匿名掲示板スクリーンショット"
+								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
+							/>
+						</figure>
+
 						<strong>現状のアプローチ：</strong><br>
 						<ul>
 						<li>既存の カメラとLiDARを入力センサとして用いたモデルである TransFuser を改良し、
@@ -283,7 +303,7 @@ const skills = [
 						<h3>LLMを用いた薬機法チェック自動化システムの開発</h3>
 						<p class="meta">
 						<span>アルバイトでのチーム開発</span>
-						<span>2024-1 – 2024-6</span>
+						<span>（2024-1 – 2024-6）</span>
 						</p>
 
 						<br>
@@ -300,8 +320,17 @@ const skills = [
 						<ul>
 						<li>自身は広告PDFのOCR処理から各行テキストを大規模言語モデル（LLM）へ送信し、薬機法違反リスクを自動評価する機能のコア部分を開発</li>
 						</ul>
+						<br>
+						</p>
+
+						<p>
+						<strong>使用技術：</strong><br>
+						<ul>
+						<li>言語：python</li>
+						</ul>
 						</p>
 						<br>
+
 						<p>
 						<strong>アプローチ：</strong><br>
 						<ul>
@@ -328,27 +357,89 @@ const skills = [
 						<br>
 					</dialog>
 
-					<!-- 3. アボカド価格予測 ML コンペ -->
-					<article class="work-card">
-						<h3>アボカド価格予測機械学習コンペ</h3>
+					<!-- 3. 匿名掲示板の開発 -->
+					<article
+						class="work-card"
+						data-modal="bulletin-board"
+						role="button"        
+						tabindex="0"         
+						aria-labelledby="bulletin-board-title" 
+					>
+						<h3>匿名掲示板の開発</h3>
 						<p class="meta">
-						<span>大学授業プロジェクト</span>
-						<span>2023-01 – 2023-02</span>
-						</p>
-
-						<p>
-						3 名チームで米国アボカド価格を予測。
-						私は<strong>ベースコード</strong>を整備し、特徴量設計・
-						ハイパーパラメータ探索を効率化。未経験チームながら
-						20 チーム中<strong>6位</strong>を獲得。
+						<span>個人での開発</span>
+						<span>2021-10 – 2021-12</span>
 						</p>
 
 						<ul>
-						<li>LightGBM / XGBoost / CatBoost を並列で評価</li>
-						<li>GitHub + Issues でタスク管理、全員の生産性を底上げ</li>
-						<li>リーダーシップとドキュメンテーションの重要性を学習</li>
+						<li>北大生向け匿名掲示板をRuby on Railsで個人開発</li>
+						<li>キーワード検索＆コメント数ランキング機能を実装し、自主的な調査と問題解決による開発推進力を習得</li>
 						</ul>
 					</article>
+
+					<dialog
+						id="bulletin-board"
+						class="work-modal"
+						role="dialog"
+						aria-modal="true"
+						tabindex="-1"
+					>
+						<button class="close" aria-label="閉じる">×</button>
+						<h3>匿名掲示板の開発</h3>
+						<p class="meta">
+							<span>個人開発</span>
+							<span>（2021-10 – 2021-12）</span>
+						</p>
+
+						<figure class="work-image">
+							<img
+								src="/images/hokumiru.png"
+								alt="匿名掲示板の様子"
+								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
+							/>
+						</figure>
+
+						<br>
+						<p>
+							<strong>概要：</strong><br>
+							<ul>
+								<li>北海道大学生専用の匿名掲示板を開発</li>
+							</ul>
+						</p>
+						<br>
+						<p>
+							<strong>使用技術：</strong><br>
+							<ul>
+								<li>言語：Ruby</li>
+								<li>フレームワーク：Ruby on Rails</li>
+							</ul>
+						</p>
+						<br>
+						<p>
+							<strong>アプローチ：</strong><br>
+							<ul>
+								<li>トピック検索機能を実装し、キーワードによる高速検索を可能に</li>
+								<li>コメント数ランキング機能を導入し、人気トピックを可視化</li>
+							</ul>
+						</p>
+						<br>
+						<p>
+						<strong>成果・個人の得られた経験：</strong><br>
+						<ul>
+							<li>技術課題を自主的に解決する能力と開発推進力を習得</li>
+							<li>得られた経験が現在の研究プログラム実装にも貢献</li>
+							<li>ソースコードを公開し、オープンソース開発の基礎を習得</li>
+						</ul>
+						</p>
+						<br>
+						<p>
+						<strong>ソースコード：</strong><br>
+						<ul>
+							<li><a href="https://github.com/kengo6053/hokumiru">github.com/kengo6053/hokumiru</a></li>
+						</ul>
+						</p>
+						<br>
+					</dialog>
 
 					</div>
 				</div>
