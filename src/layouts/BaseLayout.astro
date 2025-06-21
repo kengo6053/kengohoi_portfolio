@@ -12,7 +12,10 @@ interface Props {
 	description?: string | undefined;
 }
 
-const { title, description } = Astro.props;
+const {
+  title = 'Kengo Hoi — Portfolio',
+  description = "Kengo Hoi's personal portfolio site.",
+} = Astro.props;
 ---
 
 <html lang="ja" set:htmlAttrs={{ 'data-theme': 'light' }}>
@@ -32,6 +35,19 @@ const { title, description } = Astro.props;
 		</script>
 
 		<style>
+			html {                              /* Chrome / Edge / Safari 用 */
+			zoom: 0.7;                        /* ＝80 % */
+			}
+
+			@supports not (zoom: 0.8) {         /* Firefox フォールバック */
+			html {
+				transform: scale(0.8);
+				transform-origin: top left;
+				width: 125%;                    /* 1 / 0.8 = 1.25 → はみ出し防止 */
+			}
+			}
+
+
 			:root {
 				--_placeholder-bg: linear-gradient(transparent, transparent);
 				--bg-image-main: url('/assets/backgrounds/bg-main-light-800w.jpg');
