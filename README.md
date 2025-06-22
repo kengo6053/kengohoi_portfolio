@@ -1,5 +1,3 @@
----
-
 # Kengo Hoi's Portfolio Site
 
 ## 概要
@@ -78,5 +76,3 @@
 ## ライセンス
 
 このプロジェクトはオープンソースであり、[MIT License](https://www.google.com/search?q=LICENSE) の下で公開されています。
-
----
