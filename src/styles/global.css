@@ -281,72 +281,109 @@ h5 {
   padding-block: 4rem;
 }
 
-/* ===== Works Section Titles ===== */
-#works h2_subsection {
+/* =========================
+   Works section (final fix)
+   ========================= */
+
+/* Subsection heading & description */
+.subsection-title {
   font-size: var(--text-3xl);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
-  margin-top: 3rem; /* セクション間の余白 */
+  margin-top: 3rem;
   margin-bottom: 0.5rem;
   color: var(--gray-100);
-  border-left: 4px solid var(--accent-regular);
-  padding-left: 0.75rem;
-  justify-content: center;
+  text-align: center;
   border-left: none;
-  text-align: center;
 }
-
-#works h2_subsection:first-of-type {
-  margin-top: 1rem; /* 最初のカテゴリのみ少なめに */
-}
-
-#works p_subsection {
-  font-size: var(--text-sm);
+.subsection-desc {
+  font-size: var(--text-md);
   color: var(--gray-400);
-  margin-bottom: 1.5rem; /* 説明文とカード群の間にスペース */
+  margin-bottom: 2rem;
   text-align: center;
 }
 
-/* ===== Works Grid ===== */
+/* Grid: 常に縦並び */
 .works-grid {
   display: flex;
   flex-direction: column;
-  gap: 2rem; /* カード間の余白を調整 */
+  gap: 2rem;
 }
 
-/* ===== Work Card ===== */
+/* ===== Work card (Light default) ===== */
 .work-card {
-  background: var(--gray-50); /* 少し明るめに */
-  color: var(--gray-900);
+  background: var(--gray-50);
+  color: var(--gray-0); /* ← 本文は“黒”トークン */
   border: 1px solid var(--gray-200);
   border-radius: 1.25rem;
   padding: 1.75rem;
   box-shadow: var(--shadow-sm);
-  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.work-card h3 {
+  font-size: var(--text-xl);
+  margin-bottom: 1rem;
+  color: var(--gray-0); /* ← 見出しも“黒” */
+}
+.work-card .meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: var(--text-sm);
+  color: var(--gray-300); /* 補助情報は一段だけ薄く */
+  margin-bottom: 1rem;
+}
+@media (min-width: 40em) {
+  .work-card .meta {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.work-card ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  line-height: 1.6;
+  color: var(--gray-100); /* ← 説明文も濃色（読みやすい） */
 }
 
-.theme-dark .work-card {
-  background: var(--gray-100); /* ダークテーマ時に明るめ */
-  color: var(--gray-900);
-}
-
+/* Hover/Focus */
 .work-card:hover,
 .work-card:focus-visible {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
-  background-color: var(--gray-200);
+  background-color: var(--gray-100);
+}
+.work-card:focus-visible {
+  outline: 2px solid var(--accent-regular);
+  outline-offset: 2px;
 }
 
-/* ===== Category Separation ===== */
+/* ===== Dark overrides ===== */
+.theme-dark .work-card {
+  background: var(--gray-900);
+  color: var(--gray-0); /* 白文字 */
+  border: 1px solid var(--gray-600);
+}
+.theme-dark .work-card h3 {
+  color: var(--gray-0);
+}
+.theme-dark .work-card .meta {
+  color: var(--gray-400);
+}
+.theme-dark .work-card ul {
+  color: var(--gray-200);
+}
+.theme-dark .work-card:hover,
+.theme-dark .work-card:focus-visible {
+  background-color: var(--gray-800);
+}
+
+/* Category separator */
 #works section + section {
-  margin-top: 4rem; /* カテゴリ間の区切りを広げる */
+  margin-top: 4rem;
   border-top: 1px solid var(--gray-800);
   padding-top: 3rem;
-}
-
-/* ===== Meta Info inside cards ===== */
-.work-card .meta {
-  color: var(--gray-500);
-  font-size: var(--text-sm);
 }
