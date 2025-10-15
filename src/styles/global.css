@@ -281,3 +281,72 @@ h5 {
   padding-block: 4rem;
 }
 
+/* ===== Works Section Titles ===== */
+#works h2 {
+  font-size: var(--text-3xl);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 3rem; /* セクション間の余白 */
+  margin-bottom: 0.5rem;
+  color: var(--gray-100);
+  border-left: 4px solid var(--accent-regular);
+  padding-left: 0.75rem;
+  justify-content: center;
+  border-left: none;
+  text-align: center;
+}
+
+#works h2:first-of-type {
+  margin-top: 1rem; /* 最初のカテゴリのみ少なめに */
+}
+
+#works p {
+  font-size: var(--text-sm);
+  color: var(--gray-400);
+  margin-bottom: 1.5rem; /* 説明文とカード群の間にスペース */
+  text-align: center;
+}
+
+/* ===== Works Grid ===== */
+.works-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* カード間の余白を調整 */
+}
+
+/* ===== Work Card ===== */
+.work-card {
+  background: var(--gray-50); /* 少し明るめに */
+  color: var(--gray-900);
+  border: 1px solid var(--gray-200);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.theme-dark .work-card {
+  background: var(--gray-100); /* ダークテーマ時に明るめ */
+  color: var(--gray-900);
+}
+
+.work-card:hover,
+.work-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  background-color: var(--gray-200);
+}
+
+/* ===== Category Separation ===== */
+#works section + section {
+  margin-top: 4rem; /* カテゴリ間の区切りを広げる */
+  border-top: 1px solid var(--gray-800);
+  padding-top: 3rem;
+}
+
+/* ===== Meta Info inside cards ===== */
+.work-card .meta {
+  color: var(--gray-500);
+  font-size: var(--text-sm);
+}
