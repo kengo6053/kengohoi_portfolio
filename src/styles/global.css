@@ -218,7 +218,7 @@ h5 {
 }
 
 .stack {
-  display: flex;
+  <!--display: flex;-->
   flex-direction: column;
 }
 
@@ -247,7 +247,7 @@ h5 {
   gap: 12rem;
 }
 
-@media (min-width: 50em) {
+@media (min-width: 40em) {
   .lg\:gap-2 {
     gap: 0.5rem;
   }
@@ -273,7 +273,10 @@ h5 {
     gap: 12rem;
   }
   .section-space {
-    padding-block: 5.5rem; /* 88 px */
+    padding-block: 3rem; /* 88 px */
+    .works-grid {
+      gap: 1rem;
+    }
   }
 }
 
@@ -386,4 +389,106 @@ h5 {
   margin-top: 4rem;
   border-top: 1px solid var(--gray-800);
   padding-top: 3rem;
+}
+
+/* ===== モバイル最適化（~ 40em ≒ 640px） ===== */
+@media (max-width: 40em) {
+  /* セクション見出し */
+  .subsection-title {
+    font-size: var(--text-2xl);
+    margin-top: 2rem;
+    margin-bottom: 0.25rem;
+  }
+  .subsection-desc {
+    font-size: var(--text-base);
+    margin-bottom: 1rem;
+  }
+
+  /* カード群はそのまま縦積み。余白を少し詰める */
+  .works-grid {
+    gap: 1rem;
+  }
+
+  /* カード本体：余白圧縮＋角丸控えめ＋文字を一段だけ小さく */
+  .work-card {
+    padding: 1rem 1.125rem;
+    border-radius: 0.875rem;
+  }
+  .work-card h3 {
+    font-size: 1.05rem;
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+    overflow-wrap: anywhere; /* 長い語のはみ出し防止 */
+  }
+
+  /* メタ情報は縦並びで日付を下に */
+  .work-card .meta {
+    flex-direction: column !important;
+    gap: 0.125rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* 箇条書きはコンパクトに、左右の余白も詰める */
+  .work-card ul {
+    margin-top: 0.25rem;
+    padding-left: 1rem;
+    line-height: 1.5;
+    font-size: var(--text-sm);
+  }
+
+  /* ホバーは効かない端末も多いので :active でフィードバック */
+  .work-card:active {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* モーダルをスマホは全画面に */
+  .work-modal {
+    inset: 0 !important; /* 画面いっぱいに */
+    transform: none !important;
+    width: 100vw !important;
+    max-height: 100vh !important;
+    height: 100vh !important;
+    border-radius: 0 !important;
+    padding: 1rem 1rem 1.25rem !important;
+  }
+  .work-modal .close {
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 1.75rem; /* タップしやすく */
+  }
+  .work-modal h3 {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin: 0.25rem 0 0.5rem;
+  }
+  .work-modal .meta {
+    font-size: var(--text-sm);
+    gap: 0.25rem;
+    margin-bottom: 0.75rem;
+  }
+  .work-modal .work-image img {
+    max-height: 38vh; /* 画像が長過ぎて本文が隠れないように */
+    object-fit: cover;
+  }
+}
+
+/* さらに小さい端末（~360px）での保険 */
+@media (max-width: 23rem) {
+  .work-card {
+    padding: 0.875rem 0.875rem;
+  }
+  .work-card h3 {
+    font-size: 1rem;
+  }
+  .work-modal {
+    padding: 0.875rem 0.875rem 1rem !important;
+  }
+}
+
+/* 動きに弱い方向け：アニメ最小化 */
+@media (prefers-reduced-motion: reduce) {
+  .work-card {
+    transition: none;
+  }
 }
