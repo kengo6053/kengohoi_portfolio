@@ -26,10 +26,22 @@ const projects = (await getCollection('work'))
 
 const skills = [
 	{
+		name: 'Blender',
+		level: 3,
+		desc:
+		'経験 1 年。自作キャラクターモデルや西洋風の街並みなど簡単な環境モデルを制作。今後も積極的に制作予定。',
+	},
+	{
 		name: 'Python',
 		level: 4,
 		desc:
 		'経験 4 年。自動運転 E2E モデルの構築や、広告 PDF を OCR → 各行を LLM で評価するシステムのコア開発を担当。大学授業の機械学習コンペ（アボカド価格予測）でもチームで活用。',
+	},
+	{
+		name: 'C',
+		level: 4,
+		desc:
+		'経験 3 年。大学・大学院の授業・ティーチングアシスタントで使用',
 	},
 	{
 		name: 'Unity',
@@ -38,19 +50,25 @@ const skills = [
 		'経験 6 カ月。シェーダーの開発や Blender で作成したキャラクターモデルの動作確認に使用。',
 	},
 	{
-		name: 'Blender',
+		name: 'C#',
 		level: 3,
 		desc:
-		'経験 1 年。自作キャラクターモデルや西洋風の街並みなど簡単な環境モデルを制作。今後も積極的に制作予定。',
+		'経験 6 カ月。UnityにおけるMeshRendererを用いないメッシュ作成・描画スクリプトを作成。',
 	},
 	{
-		name: 'Linux（WSL2）',
-		level: 4,
+		name: 'HLSL',
+		level: 3,
 		desc:
-		'経験 4 年。開発環境として WSL2 を使用し、シェルスクリプトを含む開発全般を経験。',
+		'経験 6 カ月。ハッカソンや長期インターンにおいて、Unityで用いるシェーダーを開発。',
 	},
 	{
-		name: 'Ruby',
+		name: 'C++',
+		level: 3,
+		desc:
+		'経験 6 カ月。ゲーム会社のインターンで簡易的な2D物理エンジンを開発。',
+	},
+	{
+		name: 'Ruby/Ruby on Rails',
 		level: 3,
 		desc:
 		'経験 2 年。簡易匿名掲示板や図書館蔵書検索サイトなどを開発。',
@@ -62,10 +80,10 @@ const skills = [
 		'経験 2 年。部活・サークルのサイトや各種 Web サイトを制作。',
 	},
 	{
-		name: 'C',
-		level: 4,
+		name: 'MATLAB',
+		level: 2,
 		desc:
-		'経験 3 年。大学・大学院の授業・ティーチングアシスタントで使用',
+		'経験 6 カ月。画像処理や音源分離のプログラムを勉強。',
 	},
 	{
 		name: 'Java',
@@ -74,10 +92,10 @@ const skills = [
 		'経験 2 カ月。大学授業で 2 か月使用。',
 	},
 	{
-		name: 'MATLAB',
-		level: 2,
+		name: 'Linux（WSL2）',
+		level: 4,
 		desc:
-		'経験 6 カ月。画像処理や音源分離のプログラムを勉強。',
+		'経験 4 年。開発環境として WSL2 を使用し、シェルスクリプトを含む開発全般を経験。',
 	},
 ];
 ---
@@ -101,7 +119,7 @@ const skills = [
 				<div class="wrapper stack gap-12 lg:gap-10">
 
 					<!-- セクション見出し -->
-					<header class="hero">
+					<header class="hero-center">
 					<Hero
 						title="About"
 						tagline="私の簡単な自己紹介です。"
@@ -146,7 +164,7 @@ const skills = [
 						
 						<p>
 						<strong>将来の目標：</strong><br />
-						CG制作に技術的な面からアプローチしたいと考えています。
+						CG作品作りに技術面・表現面の双方からアプローチしたいと考えています。
 						</p>
 					</div>
 					</div>
@@ -155,27 +173,86 @@ const skills = [
 
 			<!-- ===== Skills ===== -->
 			<section id="Skills" class="section-space">
-				<div class="wrapper stack gap-14 lg:gap-12">
+			<div class="wrapper stack gap-14 lg:gap-12">
 				<header class="hero-center">
-					<Hero title="Skills" tagline="自分が習得したスキルの紹介です。" align="center" />
+				<Hero title="Skills" tagline="自分が習得したスキルの紹介です。" align="center" />
 				</header>
+
+				<!-- ======================= -->
+				<!-- 🎮 グラフィックス / ゲームエンジン・シェーダ -->
+				<!-- ======================= -->
+				<h2 class="subsection-title-skills">🎮 グラフィックス / ゲームエンジン・シェーダ</h2>
+				<p class="subsection-desc-skills">Unity・Blender・HLSLなど、リアルタイムCGやシェーダー開発に関するスキルです。</p>
 				<div class="skills-grid">
-					{skills.map(({name, level, desc}) => (
+				{skills
+					.filter(skill => ['Unity','HLSL','C#','Blender'].includes(skill.name))
+					.map(({ name, level, desc }) => (
 					<div class="skill-card">
 						<h3>{name}</h3>
-						<p class="stars">{'★'.repeat(level)}{'☆'.repeat(5-level)}</p>
+						<p class="stars">{'★'.repeat(level)}{'☆'.repeat(5 - level)}</p>
 						<p class="desc">{desc}</p>
 					</div>
 					))}
 				</div>
+
+				<!-- ======================= -->
+				<!-- 💻 汎用プログラミング言語 -->
+				<!-- ======================= -->
+				<h2 class="subsection-title-skills">💻 汎用プログラミング言語</h2>
+				<p class="subsection-desc-skills">基礎的な開発力を支える主要言語です。</p>
+				<div class="skills-grid">
+				{skills
+					.filter(skill => ['Python','C++','C'].includes(skill.name))
+					.map(({ name, level, desc }) => (
+					<div class="skill-card">
+						<h3>{name}</h3>
+						<p class="stars">{'★'.repeat(level)}{'☆'.repeat(5 - level)}</p>
+						<p class="desc">{desc}</p>
+					</div>
+					))}
 				</div>
+
+				<!-- ======================= -->
+				<!-- 🌐 Web / マークアップ言語 -->
+				<!-- ======================= -->
+				<h2 class="subsection-title-skills">🌐 Web / マークアップ言語</h2>
+				<p class="subsection-desc-skills">Webアプリやサイト制作など、フロントエンド寄りの開発スキルです。</p>
+				<div class="skills-grid">
+				{skills
+					.filter(skill => ['Ruby/Ruby on Rails','HTML / CSS'].includes(skill.name))
+					.map(({ name, level, desc }) => (
+					<div class="skill-card">
+						<h3>{name}</h3>
+						<p class="stars">{'★'.repeat(level)}{'☆'.repeat(5 - level)}</p>
+						<p class="desc">{desc}</p>
+					</div>
+					))}
+				</div>
+
+				<!-- ======================= -->
+				<!-- ⚙️ その他 -->
+				<!-- ======================= -->
+				<h2 class="subsection-title-skills">⚙️ その他</h2>
+				<p class="subsection-desc-skills">数値解析や開発環境構築など、周辺技術のスキルです。</p>
+				<div class="skills-grid-bottom">
+				{skills
+					.filter(skill => ['MATLAB','Linux（WSL2）'].includes(skill.name))
+					.map(({ name, level, desc }) => (
+					<div class="skill-card">
+						<h3>{name}</h3>
+						<p class="stars">{'★'.repeat(level)}{'☆'.repeat(5 - level)}</p>
+						<p class="desc">{desc}</p>
+					</div>
+					))}
+				</div>
+			</div>
 			</section>
 
 			<!-- ========= Works ========= -->
 			<section id="works"  class="section-space">
 				<div class="wrapper stack gap-12 lg:gap-10">
 
-				<header class="hero">
+				<header class="hero-center">
 				<Hero title="Works" align="center">
 					<p class="hero-tagline">
 					自分のこれまでの活動・制作実績の紹介です。<br />
@@ -917,18 +994,49 @@ const skills = [
 
 	/***********************  Global helpers  ***********************/
 	.section-space{padding-block:6rem;}
-	.hero-center{display:flex;flex-direction:column;align-items:center;text-align:center;
-	  margin-bottom: 3rem;   /* 例: 2.5rem ≒ 40px */}
+	.hero-center{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	  	margin-bottom: 5rem;   /* 例: 2.5rem ≒ 40px */}
 	.wrapper{max-width:1500px;margin-inline:auto;padding-inline:1rem;}
 
 	/***********************  Skills grid  *************************/
+	/* 既定：自動で複数列 */
 	.skills-grid{
 		display:grid;
-		grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+		grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
 		gap:1.5rem;
 		margin-inline:auto;
 		max-width:1200px;
+		margin-bottom: 7rem;
 	}
+
+	/* 2枚だけのとき用：中央2列固定 */
+	.skills-grid--two{
+	grid-template-columns:repeat(2, minmax(280px, 1fr));
+	justify-content:center;     /* グリッド自体を中央寄せ */
+	max-width: min(800px, 100%);/* 並びが間延びしない幅に制限 */
+	}
+
+	/* 既定：自動で複数列 */
+	.skills-grid-bottom{
+		display:grid;
+		grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+		gap:1.5rem;
+		margin-inline:auto;
+		max-width:1200px;
+		margin-bottom: 3rem;
+	}
+
+	/* 2枚だけのとき用：中央2列固定 */
+	.skills-grid-bottom--two{
+		grid-template-columns:repeat(2, minmax(280px, 1fr));
+		justify-content:center;     /* グリッド自体を中央寄せ */
+		max-width: min(800px, 100%);/* 並びが間延びしない幅に制限 */
+	}
+
 	.skill-card{
 		background:var(--gray-950);
 		border:1px solid var(--gray-800);
@@ -945,8 +1053,11 @@ const skills = [
 	.stars{color:var(--accent-regular);letter-spacing:.1em;margin-bottom:.5rem;}
 	.desc{font-size:.875rem;line-height:1.5;color:var(--gray-300);}  
 
-	@media(min-width:50em){
-		.skills-grid{grid-template-columns:repeat(3,1fr);} /* 1行3つ固定 */
+	@media (max-width: 40em){
+		.skills-grid--two{
+			grid-template-columns:1fr;
+			max-width: 560px;
+		}
 	}
 
 	/* ===== Work modal (common) – レイアウト共通 ===== */

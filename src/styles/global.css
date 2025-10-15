@@ -66,6 +66,7 @@
   --text-lg: 1.25rem;
   --text-xl: 1.625rem;
   --text-2xl: 2.125rem;
+  --text-2_5xl: 2.3rem;
   --text-3xl: 2.625rem;
   --text-4xl: 3.5rem;
   --text-5xl: 4.5rem;
@@ -178,6 +179,7 @@ h5 {
 
 h1 {
   font-size: var(--text-5xl);
+  margin-bottom: 1rem;
 }
 
 h2 {
@@ -290,13 +292,13 @@ h5 {
 
 /* Subsection heading & description */
 .subsection-title {
-  font-size: var(--text-3xl);
+  font-size: var(--text-2_5xl);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
   margin-top: 3rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   color: var(--gray-100);
   text-align: center;
   border-left: none;
@@ -305,6 +307,25 @@ h5 {
   font-size: var(--text-md);
   color: var(--gray-400);
   margin-bottom: 2rem;
+  text-align: center;
+}
+
+.subsection-title-skills {
+  font-size: var(--text-2_5xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  color: var(--gray-100);
+  text-align: center;
+  border-left: none;
+}
+.subsection-desc-skills {
+  font-size: var(--text-md);
+  color: var(--gray-400);
+  margin-bottom: 3rem;
   text-align: center;
 }
 
@@ -397,11 +418,22 @@ h5 {
   .subsection-title {
     font-size: var(--text-2xl);
     margin-top: 2rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: 1rem;
   }
   .subsection-desc {
     font-size: var(--text-base);
+    margin-bottom: 2rem;
+  }
+
+  .subsection-title-skills {
+    font-size: var(--text-2xl);
+    margin-top: 5rem;
     margin-bottom: 1rem;
+  }
+  .subsection-desc-skills {
+    font-size: var(--text-base);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 
   /* カード群はそのまま縦積み。余白を少し詰める */
