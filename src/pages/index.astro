@@ -185,6 +185,168 @@ const skills = [
 				</header>
 
 				<section id="programming">
+					<h2 class="subsection-title">🎨 3D Modeling / Visual Works</h2>
+					<p class="subsection-desc">Blenderをはじめとした3DCGツールを用い、ビジュアル表現や世界観づくりに挑戦した作品をまとめています。</p>
+					<!-- ここに各作品カード -->
+					<div class="works-grid">
+					<!-- 2-2. Silicon Studio Hackathon 2025 -->
+					<article
+						class="work-card"
+						data-modal="ss-hackathon-2025"
+						role="button"
+						tabindex="0"
+						aria-labelledby="ss-hackathon-2025-title"
+					>
+						<h3 id="ss-hackathon-2025-title">Unity/URP：トーンシェーディングと水面反射による「夏の涼しげな部屋」</h3>
+						<p class="meta">
+							<span>個人制作（Silicon Studio Hackathon 2025）</span>
+							<span>2025</span>
+						</p>
+						<ul>
+							<li>テーマ「夏の涼しげな部屋」：2Dイラスト調の質感と水中の雰囲気を表現。</li>
+							<li>HLSLでトーンシェーダを実装（3段階閾値・各段の色濃度をプロパティ化）。</li>
+							<li>床面は反射カメラ＋RenderTextureでスクリーンスペース反射を実装。</li>
+							<li>天井は発光＋メタボール状マスクで動的エフェクトを合成。</li>
+						</ul>
+					</article>
+
+					<dialog
+						id="ss-hackathon-2025"
+						class="work-modal"
+						role="dialog"
+						aria-modal="true"
+						tabindex="-1"
+					>
+						<button class="close" aria-label="閉じる">×</button>
+						<h3>Unity/URP：トーンシェーディングと水面反射による「夏の涼しげな部屋」</h3>
+						<p class="meta">
+							<span>個人制作（Silicon Studio Hackathon 2025）</span>
+							<span>2025</span>
+						</p>
+
+						<!-- 画像は任意。用意できたら差し替えてください -->
+						<!--
+						<figure class="work-image">
+							<img
+							src="/img/ss_hackathon_2025_scene.png"
+							alt="完成シーンのスクリーンショット"
+							style="width:100%; border-radius:.5rem; margin:1rem 0;"
+							loading="lazy"
+							/>
+						</figure>
+						-->
+
+						<p><strong>概要：</strong></p>
+						<ul>
+							<li>「2Dイラスト風 × 水中の涼感」を軸にした室内シーンを制作。</li>
+							<li>質感はURP＋カスタムHLSLで統一、要素ごとにテクスチャ重ね塗りで変化を付与。</li>
+						</ul>
+						<br/>
+
+						<p><strong>技術要素：</strong></p>
+						<ul>
+							<li><b>トーンシェーディング：</b> 光方向と法線の内積から3段階のしきい値で色分け。各段の閾値・色濃度をプロパティで制御。</li>
+							<li><b>床の反射：</b> メインカメラを平面で鏡映した位置に反射カメラを配置。RenderTexture を割り当て、床シェーダで透視投影を考慮して参照。</li>
+							<li><b>天井の発光：</b> 発光成分にメタボール状マスクを合成して動的な明滅を表現。</li>
+							<li><b>ポスト表現：</b> Screen Space Lens Flare を適用し、アクセントを付与。</li>
+						</ul>
+						<br/>
+
+						<p><strong>デザイン面の工夫：</strong></p>
+						<ul>
+							<li>背景（壁・床）はライトブルー、家具はダークブルーに統一して寒暖差を演出。</li>
+							<li>黄色をアクセントカラーに採用し、視線誘導とリズムを付与。</li>
+						</ul>
+						<br/>
+
+						<p><strong>使用技術：</strong> Unity（URP）, HLSL/ShaderLab, RenderTexture, Screen Space Lens Flare</p>
+					</dialog>
+
+					<!-- 2-1.blenderでの背景モデリング-->
+					<article
+						class="work-card"
+						data-modal="blender-environment-modaling-1"
+						role="button"        
+						tabindex="0"         
+						aria-labelledby="blender-environment-modaling-1-title" 
+					>
+						<h3>blenderでの背景モデルの制作</h3>
+						<p class="meta">
+						<span>個人でのCG制作</span>
+						<span>2025-5 – 2025-6</span>
+						</p>
+
+						<ul>
+						<li>blenderを用いて西欧の街中の路地裏の環境モデル制作を実施</li>
+						</ul>
+					</article>
+
+					<dialog
+						id="blender-environment-modaling-1"
+						class="work-modal"
+						role="dialog"
+						aria-modal="true"
+						tabindex="-1"
+					>
+						<button class="close" aria-label="閉じる">×</button>
+						<h3>blenderでの背景モデルの制作</h3>
+						<p class="meta">
+							<span>個人でのCG制作</span>
+							<span>（2025-5 – 2025-6）</span>
+						</p>
+
+						<figure class="work-image">
+							<img
+								src="/img/environment_modeling.png"
+								alt="モデルの画像"
+								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
+							/>
+						</figure>
+
+						<figure class="work-image">
+							<img
+								src="/img/environment_modeling_no_texture.png"
+								alt="テクスチャ抜きのモデルの画像"
+								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
+							/>
+						</figure>						
+
+						<br>
+						<p>
+							<strong>概要：</strong><br>
+							<ul>
+								<li>夕暮れ時の西欧の街中の路地裏の様子をイメージして、背景モデルを制作</li>
+							</ul>
+						</p>
+						<br>
+						<p>
+							<strong>使用したソフトウェア：</strong><br>
+							<ul>
+								<li>Blender</li>
+							</ul>
+						</p>
+						<br>
+						<p>
+							<strong>制作期間（制作時間）：</strong><br>
+							<ul>
+								<li>2か月（40時間）
+							</ul>
+						</p>
+						<br>
+						<p>
+						<strong>工夫したポイント、注力した点など：</strong><br>
+						<ul>
+							<li>夕方の日が落ちてきたときの光や、ランタンの光を温かな色で表現</li>
+							<li>木箱や樽，ゴミ箱をちりばめることで、生活感を出し、よりリアルさを演出</li>
+						</ul>
+						</p>
+						<br>
+					</dialog>
+
+					</div>
+				</section>
+
+				<section id="programming">
 					<h2 class="subsection-title">💻 Programming / Technical Works</h2>
 					<p class="subsection-desc">研究・開発・ツール制作など、技術的なアプローチによる制作物をまとめています。</p>
 					<!-- ここに各作品カード -->
@@ -458,95 +620,6 @@ const skills = [
 						</p>
 						<br>
 					</dialog>
-					</div>
-				</section>
-
-				<section id="programming">
-					<h2 class="subsection-title">🎨 3D Modeling / Visual Works</h2>
-					<p class="subsection-desc">Blenderをはじめとした3DCGツールを用い、ビジュアル表現や世界観づくりに挑戦した作品をまとめています。</p>
-					<!-- ここに各作品カード -->
-					<div class="works-grid">
-					<!-- 2-1.blenderでの背景モデリング-->
-					<article
-						class="work-card"
-						data-modal="blender-environment-modaling-1"
-						role="button"        
-						tabindex="0"         
-						aria-labelledby="blender-environment-modaling-1-title" 
-					>
-						<h3>blenderでの背景モデルの制作</h3>
-						<p class="meta">
-						<span>個人でのCG制作</span>
-						<span>2025-5 – 2025-6</span>
-						</p>
-
-						<ul>
-						<li>blenderを用いて西欧の街中の路地裏の環境モデル制作を実施</li>
-						</ul>
-					</article>
-
-					<dialog
-						id="blender-environment-modaling-1"
-						class="work-modal"
-						role="dialog"
-						aria-modal="true"
-						tabindex="-1"
-					>
-						<button class="close" aria-label="閉じる">×</button>
-						<h3>blenderでの背景モデルの制作</h3>
-						<p class="meta">
-							<span>個人でのCG制作</span>
-							<span>（2025-5 – 2025-6）</span>
-						</p>
-
-						<figure class="work-image">
-							<img
-								src="/img/environment_modeling.png"
-								alt="モデルの画像"
-								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
-							/>
-						</figure>
-
-						<figure class="work-image">
-							<img
-								src="/img/environment_modeling_no_texture.png"
-								alt="テクスチャ抜きのモデルの画像"
-								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
-							/>
-						</figure>						
-
-						<br>
-						<p>
-							<strong>概要：</strong><br>
-							<ul>
-								<li>夕暮れ時の西欧の街中の路地裏の様子をイメージして、背景モデルを制作</li>
-							</ul>
-						</p>
-						<br>
-						<p>
-							<strong>使用したソフトウェア：</strong><br>
-							<ul>
-								<li>Blender</li>
-							</ul>
-						</p>
-						<br>
-						<p>
-							<strong>制作期間（制作時間）：</strong><br>
-							<ul>
-								<li>2か月（40時間）
-							</ul>
-						</p>
-						<br>
-						<p>
-						<strong>工夫したポイント、注力した点など：</strong><br>
-						<ul>
-							<li>夕方の日が落ちてきたときの光や、ランタンの光を温かな色で表現</li>
-							<li>木箱や樽，ゴミ箱をちりばめることで、生活感を出し、よりリアルさを演出</li>
-						</ul>
-						</p>
-						<br>
-					</dialog>
-
 					</div>
 				</section>
 				</div>
