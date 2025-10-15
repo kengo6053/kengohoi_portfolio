@@ -282,7 +282,7 @@ h5 {
 }
 
 /* ===== Works Section Titles ===== */
-#works h2 {
+#works h2-subsection {
   font-size: var(--text-3xl);
   display: flex;
   align-items: center;
@@ -297,11 +297,11 @@ h5 {
   text-align: center;
 }
 
-#works h2:first-of-type {
+#works h2-subsection:first-of-type {
   margin-top: 1rem; /* 最初のカテゴリのみ少なめに */
 }
 
-#works p {
+#works p-subsection {
   font-size: var(--text-sm);
   color: var(--gray-400);
   margin-bottom: 1.5rem; /* 説明文とカード群の間にスペース */
