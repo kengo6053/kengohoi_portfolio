@@ -435,10 +435,10 @@ const skills = [
 						tabindex="0"
 						aria-labelledby="blender-plugin-tool-development-title"
 					>
-						<h3 id="blender-plugin-tool-development-title">Blender プラグイン開発／ツール構築</h3>
+						<h3 id="blender-plugin-tool-development-title">Blenderプラグイン：ground_conformer</h3>
 						<p class="meta">
-							<span>テクニカルアーティスト（ツール開発）</span>
-							<span>2025-X – 2025-Y</span>
+							<span>blenderのプラグイン開発</span>
+							<span>2025-05 ~ 2025-05</span>
 						</p>
 
 						<ul>
@@ -456,21 +456,30 @@ const skills = [
 						tabindex="-1"
 					>
 						<button class="close" aria-label="閉じる">×</button>
-						<h3>Blender プラグイン開発／ツール構築</h3>
+						<h3>Blenderプラグイン：ground_conformer</h3>
 						<p class="meta">
-							<span>テクニカルアーティスト（ツール開発）</span>
-							<span>（2025-X – 2025-Y）</span>
+							<span>blenderのプラグイン開発</span>
+							<span>（2025-05 ~ 2025-05）</span>
 						</p>
+						
+						<figure class="work-image">
+							<img
+								src="/img/blender_plugin_1_function.PNG"
+								alt="プラグイン UI のスクリーンショット"
+								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
+							/>
+						</figure>
 
 						<figure class="work-image">
-							<img src="/img/blender_plugin_ui.png" alt="プラグイン UI のスクリーンショット" style="width:100%; border-radius:0.5rem; margin:1rem 0;">
-						</figure>
-						<figure class="work-image">
-							<img src="/img/blender_plugin_flow.png" alt="ワークフロー改善を示すフローチャート" style="width:100%; border-radius:0.5rem; margin:1rem 0;">
+							<img
+								src="/img/blender_plugin_1_workflow.PNG"
+								alt="ワークフロー改善を示すフローチャート"
+								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
+							/>
 						</figure>
 
 						<br>
-						<p><strong>① 課題解決のアプローチ：</strong><br>
+						<p><strong>課題解決のアプローチ：</strong><br>
 							モデリング／環境アーティストから「反復作業が多く、時間がかかる」「ファイル変換や命名規則が統一されていない」といった要望を受け、  
 							以下のように設計・実装しました：  
 							<ul>
@@ -480,7 +489,7 @@ const skills = [
 							</ul>
 						</p>
 						<br>
-						<p><strong>② わかりやすさ（UI／操作感）：</strong><br>
+						<p><strong>わかりやすさ（UI／操作感）：</strong><br>
 							<ul>
 							<li>Blender の「ツール」パネルにカスタム UI を設置。大きなボタン＋アイコン付きで直感的に操作可能。</li>
 							<li>操作ログを非破壊形式で出力。ミスした場合でも「元に戻す」ためのウィジェット付き。</li>
@@ -488,10 +497,9 @@ const skills = [
 							</ul>
 						</p>
 						<br>
-						<p><strong>③ プログラミング知識・コーディングルール：</strong><br>
+						<p><strong>プログラミング知識・コーディングルール：</strong><br>
 							<ul>
 							<li>言語：Python 3.x + Blender API (bpy モジュール) を活用。</li>
-							<li>モジュール構成：`tool_main.py`, `ui_panel.py`, `op_batch.py`, `utils_naming.py` の４レイヤー構造を採用。</li>
 							<li>コーディング規約：PEP8 に準拠。関数ドキュメンテーション、型ヒント、ユニットテスト（pytest）を実装。複数アーティスト／TA チームで共有できるようリファクタリング済み。</li>
 							<li>バージョン管理：Git flow を使用、ブランチ命名規則・プルリク依頼テンプレートも整備し、メンテナンス性を担保。</li>
 							</ul>
