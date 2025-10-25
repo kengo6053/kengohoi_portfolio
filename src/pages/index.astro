@@ -264,26 +264,40 @@ const skills = [
 				<section id="visual">
 					<h2 class="subsection-title">🎨 3D Modeling / Visual Works</h2>
 					<p class="subsection-desc">BlenderやUnityなどの3DCGツールを用い、ビジュアル表現や世界観づくりに挑戦した作品をまとめています。</p>
+					
 					<!-- ここに各作品カード -->
 					<div class="works-grid">
+
 					<!-- 1-1. Silicon Studio Hackathon 2025 -->
 					<article
-						class="work-card"
+						class="work-card work-card--image-right"
 						data-modal="ss-hackathon-2025"
 						role="button"
 						tabindex="0"
 						aria-labelledby="ss-hackathon-2025-title"
 					>
-						<h3 id="ss-hackathon-2025-title">トーンシェーディングと水面反射による「夏の涼しげな部屋」</h3>
+						<h3 id="ss-hackathon-2025-title">「夏の涼しげな部屋」のシェーダー開発（シリコンスタジオハッカソン2025）</h3>
 						<p class="meta">
-							<span>個人での3Dシーン制作（シリコンスタジオハッカソン2025で制作）</span>
+							<span>個人での3Dシーン制作</span>
 							<span>2025-08 ~ 2025-09</span>
 						</p>
-						<ul>
-							<li>シリコンスタジオ株式会社のオンラインハッカソンで制作した、Unityでのシェーダー開発やポストエフェクト開発による3Dシーン作品（3DCGモデルはシリコンスタジオ株式会社が製作）</li>
-							<li>「夏の涼しげな部屋」をテーマに、2Dイラスト調トーンシェーダ（3段階閾値・色濃度可変）をHLSLで実装</li>
-							<li>床は反射カメラ＋RenderTextureでスクリーンスペース反射、天井は発光とメタボール状マスクで動的エフェクトを表現</li>
-						</ul>
+
+						<div class="work-card__body">
+							<div class="work-card__text">
+							<ul>
+								<li>シリコンスタジオ株式会社のオンラインハッカソンで制作した、Unityでのシェーダー開発やポストエフェクト開発による3Dシーン作品（3DCGモデルはシリコンスタジオ株式会社が製作）</li>
+								<li>「夏の涼しげな部屋」をテーマに、2Dイラスト調トーンシェーダ（3段階閾値・色濃度可変）をHLSLで実装</li>
+								<li>床は反射カメラ＋RenderTextureでスクリーンスペース反射、天井は発光とメタボール状マスクで動的エフェクトを表現</li>
+							</ul>
+							</div>
+							<figure class="work-card__image">
+							<img
+								src="/img/ss_hackathon_2025_scene.jpg"
+								alt="「夏の涼しげな部屋」シーンのビジュアルプレビュー"
+								style="width:100%; border-radius:0.5rem; margin:0;"
+							/>
+							</figure>
+						</div>
 					</article>
 
 					<dialog
@@ -294,18 +308,22 @@ const skills = [
 						tabindex="-1"
 					>
 						<button class="close" aria-label="閉じる">×</button>
-						<h3>トーンシェーディングと水面反射による「夏の涼しげな部屋」</h3>
+						<h3>「夏の涼しげな部屋」のシェーダー開発（シリコンスタジオハッカソン2025）</h3>
 						<p class="meta">
-							<span>個人制作（Silicon Studio Hackathon 2025）</span>
-							<span>2025-08 ~ 2025-09</span>
+							<br>
+							<span>個人での3Dシーン制作</span>
+							<span>（2025-08 ~ 2025-09）</span>
 						</p>
 
 						<figure class="work-image">
-							<img
-								src="/img/ss_hackathon_2025_scene.jpg"
-								alt="完成シーンのスクリーンショット"
-								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
-							/>
+							<video
+								src="/img/SSKK-Hackathon2025_movie.mp4"
+								type="video/mp4"
+								controls
+								style="width:80%; border-radius:0.5rem; margin:1rem 0;"
+							>
+								お使いのブラウザは動画タグをサポートしていません。
+							</video>
 						</figure>
 
 						<p><strong>概要：</strong></p>
@@ -334,25 +352,36 @@ const skills = [
 						<p><strong>使用技術：</strong> Unity（URP）, HLSL/ShaderLab, RenderTexture, Screen Space Lens Flare</p>
 					</dialog>
 
-					<!-- 1-2.Blenderでの背景モデリング-->
+					<!-- 1-2. 背景モデル制作 -->
 					<article
-						class="work-card"
+						class="work-card work-card--image-right"
 						data-modal="Blender-environment-modaling-1"
-						role="button"        
-						tabindex="0"         
-						aria-labelledby="Blender-environment-modaling-1-title" 
+						role="button"
+						tabindex="0"
+						aria-labelledby="Blender-environment-modaling-1-title"
 					>
-						<h3>「西欧の路地裏」の背景モデル</h3>
+						<h3 id="Blender-environment-modaling-1-title">「西欧の路地裏」の背景モデル制作</h3>
 						<p class="meta">
-						<span>個人でのCG制作</span>
-						<span>2025-05 ~ 2025-06</span>
+							<span>個人でのCG制作</span>
+							<span>2025-05 ~ 2025-06</span>
 						</p>
 
-						<ul>
-						<li>Blenderを用いて西欧の街中の路地裏の環境モデル制作を実施</li>
-						<li>夕方の日が落ちてきたときの光や、ランタンの光を温かな色で表現</li>
-						<li>木箱や樽，ゴミ箱をちりばめることで、生活感を出し、よりリアルさを演出</li>
-						</ul>
+						<div class="work-card__body">
+							<div class="work-card__text">
+							<ul>
+								<li>Blenderを用いて西欧の街中の路地裏の環境モデル制作を実施</li>
+								<li>夕方の日が落ちてきたときの光や、ランタンの光を温かな色で表現</li>
+								<li>木箱や樽，ゴミ箱をちりばめることで、生活感を出し、よりリアルさを演出</li>
+							</ul>
+							</div>
+							<figure class="work-card__image">
+							<img
+								src="/img/environment_modeling.png"
+								alt="「夏の涼しげな部屋」シーンのビジュアルプレビュー"
+								style="width:100%; border-radius:0.5rem; margin:0;"
+							/>
+							</figure>
+						</div>
 					</article>
 
 					<dialog
@@ -363,8 +392,9 @@ const skills = [
 						tabindex="-1"
 					>
 						<button class="close" aria-label="閉じる">×</button>
-						<h3>Blenderでの背景モデルの制作</h3>
+						<h3>「西欧の路地裏」の背景モデル制作</h3>
 						<p class="meta">
+							<br>
 							<span>個人でのCG制作</span>
 							<span>（2025-05 ~ 2025-06）</span>
 						</p>
@@ -373,7 +403,7 @@ const skills = [
 							<img
 								src="/img/environment_modeling.png"
 								alt="モデルの画像"
-								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
+								style="width:80%; border-radius:0.5rem; margin:1rem 0;"
 							/>
 						</figure>
 
@@ -381,7 +411,7 @@ const skills = [
 							<img
 								src="/img/environment_modeling_no_texture.png"
 								alt="テクスチャ抜きのモデルの画像"
-								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
+								style="width:80%; border-radius:0.5rem; margin:1rem 0;"
 							/>
 						</figure>						
 
@@ -430,23 +460,34 @@ const skills = [
 
 					<!-- 2-1. ツール開発：Blender プラグインカード -->
 					<article
-						class="work-card"
+						class="work-card work-card--image-right"
 						data-modal="Blender-plugin-tool-development"
 						role="button"
 						tabindex="0"
 						aria-labelledby="Blender-plugin-tool-development-title"
 					>
-						<h3 id="Blender-plugin-tool-development-title">Blenderプラグイン：ground_conformer</h3>
+						<h3 id="Blender-plugin-tool-development-title">Blenderプラグイン「ground_conformer」の開発</h3>
 						<p class="meta">
 							<span>Blenderのプラグイン開発</span>
 							<span>2025-05 ~ 2025-05</span>
 						</p>
 
-						<ul>
-							<li>3Dモデリングの時間・手間削減を目的に、Blender 用プラグインを自作</li>
-							<li>UI 操作・バッチ処理・ワークフロー改善により、反復作業を自動化・簡略化</li>
-							<li>Python＋Blender API による実装／コーディング規約・モジュール構成・ドキュメントも整備</li>
-						</ul>
+						<div class="work-card__body">
+							<div class="work-card__text">
+							<ul>
+								<li>3Dモデリングの時間・手間削減を目的に、Blender 用プラグインを自作</li>
+								<li>UI 操作・バッチ処理・ワークフロー改善により、反復作業を自動化・簡略化</li>
+								<li>Python＋Blender API による実装／コーディング規約・モジュール構成・ドキュメントも整備</li>
+							</ul>
+							</div>
+							<figure class="work-card__image">
+							<img
+								src="/img/blender_plugin_1_function.png"
+								alt="blenderプラグインのプレビュー"
+								style="width:100%; border-radius:0.5rem; margin:0;"
+							/>
+							</figure>
+						</div>
 					</article>
 
 					<dialog
@@ -457,25 +498,26 @@ const skills = [
 						tabindex="-1"
 					>
 						<button class="close" aria-label="閉じる">×</button>
-						<h3>Blenderプラグイン：ground_conformer</h3>
+						<h3>Blenderプラグイン「ground_conformer」の開発</h3>
 						<p class="meta">
+							<br>
 							<span>Blenderのプラグイン開発</span>
 							<span>（2025-05 ~ 2025-05）</span>
 						</p>
 						
 						<figure class="work-image">
 							<img
-								src="/img/Blender_plugin_1_function.PNG"
+								src="/img/blender_plugin_1_function.png"
 								alt="プラグイン UI のスクリーンショット"
-								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
+								style="width:80%; border-radius:0.5rem; margin:1rem 0;"
 							/>
 						</figure>
 
 						<figure class="work-image">
 							<img
-								src="/img/Blender_plugin_1_workflow.PNG"
+								src="/img/blender_plugin_1_workflow.png"
 								alt="ワークフロー改善を示すフローチャート"
-								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
+								style="width:80%; border-radius:0.5rem; margin:1rem 0;"
 							/>
 						</figure>
 
@@ -521,27 +563,143 @@ const skills = [
 						<br>
 					</dialog>
 
-
-					<!-- 2-2. ステレオカメラ E2E 自動運転研究 -->
+					<!-- 2-2. 2D物理エンジンの開発（コーエーテクモ サマーインターンシップ2025） -->
 					<article
-						class="work-card"
+						class="work-card work-card--image-right"
+						data-modal="2D-physics-engine-development"
+						role="button"
+						tabindex="0"
+						aria-labelledby="2D-physics-engine-development-title"
+					>
+						<h3 id="2D-physics-engine-development-title">2D物理エンジンの開発（コーエーテクモ サマーインターンシップ2025）</h3>
+						<p class="meta">
+							<span>個人での物理エンジン開発</span>
+							<span>2025-08 ~ 2025-08</span>
+						</p>
+
+						<div class="work-card__body">
+							<div class="work-card__text">
+							<ul>
+								<li>コーエーテクモ サマーインターンシップ2025にて、課題として2D空間で物体の落下・衝突・反射を再現する自作物理エンジンを開発。</li>
+								<li>円・四角形・三角形をコップ内にランダム配置し、重力と反発を考慮して再配置。</li>
+								<li>運動量保存・反発係数を用いて自然な衝突挙動を再現。</li>
+								<li>摩擦や滑り落ちなども簡易モデルで表現し、安定した物理挙動を実現。</li>
+							</ul>
+							</div>
+							<figure class="work-card__image">
+							<img
+								src="/img/2D_physics_engine.png"
+								alt="blenderプラグインのプレビュー"
+								style="width:100%; border-radius:0.5rem; margin:0;"
+							/>
+							</figure>
+						</div>
+					</article>
+
+					<dialog
+						id="2D-physics-engine-development"
+						class="work-modal"
+						role="dialog"
+						aria-modal="true"
+						tabindex="-1"
+					>
+						<button class="close" aria-label="閉じる">×</button>
+						<h3>2D物理エンジンの開発（コーエーテクモ サマーインターンシップ2025）</h3>
+						<p class="meta">
+							<br>
+							<span>個人での物理エンジン開発</span>
+							<span>（2025-08 ~ 2025-08）</span>
+						</p>
+
+						<figure class="work-image">
+							<video
+								src="/img/2D_physics_engine_3.mp4"
+								type="video/mp4"
+								controls
+								style="width:80%; border-radius:0.5rem; margin:1rem 0;"
+							>
+								お使いのブラウザは動画タグをサポートしていません。
+							</video>
+						</figure>
+
+						<br>
+
+						<p><strong>課題の概要：</strong><br>
+							<ul>
+								<li><b>テーマ：</b>2D空間上で動作する「簡易物理エンジン」を自作し、物体の<strong>重力落下</strong>・<strong>衝突解決</strong>を実装する。</li>
+								<li><b>内容：</b>
+									<ul>
+										<li>コップの中に円・四角形・三角形などの図形をランダムに配置。</li>
+										<li>重力を考慮して自然に下へ落下し、重なりがなくなるように再配置。</li>
+										<li>「初期配置リセット」や「コリジョン解決」などのGUI操作に対応。</li>
+									</ul>
+								</li>
+								<li><b>目的：</b>物理的に自然な衝突挙動を再現するアルゴリズムを、自作のC++コードで設計・実装する。</li>
+								<li><b>開発条件：</b>
+									<ul>
+										<li>開発環境：Visual Studio（Windows 10 / 11）</li>
+										<li>使用言語：C++（外部ライブラリ・生成AIの使用は禁止）</li>
+										<li>コップ外に図形が出ない・重なりが残らないことを条件とする。</li>
+									</ul>
+								</li>
+							</ul>
+						</p>
+
+						<br>
+
+						<p><strong>実装内容：</strong><br>
+							<ul>
+								<li><b>初期配置（ResetObject）</b>：三角形・円・四角形をコップ内にランダム配置。物体同士の重なり判定と質量算出を実装。</li>
+								<li><b>更新処理（UpdateObject）</b>：重力加速度・壁や床との衝突反射・摩擦減速を毎フレーム計算。</li>
+								<li><b>衝突解決（Collision Solver）</b>：運動量保存と力積の関係式に基づいて速度を更新。反発係数を用いた反射挙動を再現。</li>
+								<li><b>物体同士の衝突フロー</b>：重なり量に応じた押し戻し処理、法線方向の判定、滑り落ちの効果を再現。</li>
+							</ul>
+						</p>
+
+						<br>
+
+						<p><strong>特徴：</strong><br>
+							<ul>
+								<li>力積・反発係数を明示的に扱うことで物理的に正しい反射挙動を再現</li>
+								<li>摩擦・滑り落ちなどの要素を簡易モデルで実装し、自然な動きを再現</li>
+								<li>三角形や四角形など、形状による接触判定ロジックを個別設計</li>
+								<li>図形間の連続的な衝突処理（逐次解決）により安定した挙動を実現</li>
+							</ul>
+						</p>
+					</dialog>
+
+					<!-- 2-3. ステレオカメラ E2E 自動運転研究 -->
+					<article
+						class="work-card work-card--image-right"
 						data-modal="modal-e2e"
-						role="button"        
-						tabindex="0"         
+						role="button"
+						tabindex="0"
 						aria-labelledby="work-e2e-title" 
 					>
 						<h3 id="work-e2e-title">ステレオカメラを用いた自動運転の深層学習モデルの研究</h3>
 						<p class="meta">
-						<span>研究室での研究（Astemo株式会社との共同研究）　</span>
-						<span>2024-10 ~ 現在</span>
+							<span>研究室での研究（Astemo株式会社との共同研究）　</span>
+							<span>2024-10 ~ 現在</span>
 						</p>
 
-						<ul>
-						<li>Astemo株式会社との共同研究で、TransFuserを改良しステレオカメラの視差点群から加速度を直接予測する、自動運転の深層学習モデルを開発</li>
-						<li>13万フレームの実車データでオープンループ評価により日常追従性能を実証。</li>
-						<li>現在 Unreal Engine をベースとしたCARLAシミュレータを用いたクローズドループ評価を実施中</li>
-						<li>今後の展望として、他運転タスクへの適用を検討。</li>
-						</ul>
+
+						<div class="work-card__body">
+							<div class="work-card__text">
+							<ul>
+								<li>Astemo株式会社との共同研究で、TransFuserを改良しステレオカメラの視差点群から加速度を直接予測する、自動運転の深層学習モデルを開発</li>
+								<li>13万フレームの実車データでオープンループ評価により日常追従性能を実証。</li>
+								<li>現在 Unreal Engine をベースとしたCARLAシミュレータを用いたクローズドループ評価を実施中</li>
+								<li>今後の展望として、他運転タスクへの適用を検討。</li>
+							</ul>
+							</div>
+							<figure class="work-card__image">
+							<img
+								src="/img/research_abstract.png"
+								alt="研究のアブストラクトのプレビュー"
+								style="width:100%; border-radius:0.5rem; margin:0;"
+							/>
+							</figure>
+						</div>
 					</article>
 
 					<dialog
@@ -554,11 +712,18 @@ const skills = [
 						<button class="close" aria-label="閉じる">×</button>
 						<h3>ステレオカメラを用いた E2E 自動運転モデルの研究</h3>
 						<p class="meta">
-						<span>研究室での研究（Astemo株式会社との共同研究）　</span>
-						<span>（2024-10 ~ 現在）</span>
+							<br>
+							<span>研究室での研究（Astemo株式会社との共同研究）　</span>
+							<span>（2024-10 ~ 現在）</span>
 						</p>
 
-						<br>
+						<figure class="work-image">
+							<img
+								src="/img/Proposed_method.png"
+								alt="提案手法のアーキテクチャ"
+								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
+							/>
+						</figure>
 						<p>
 						<strong>研究テーマ：</strong><br>
 						認識～制御を単一ネットワークで最適化するエンドツーエンド(E2E)自動運転において、入力センサにステレオカメラを用いたモデルの実現、
@@ -573,14 +738,6 @@ const skills = [
 						</ul>
 						</p>
 						<br>
-
-						<figure class="work-image">
-							<img
-								src="/img/Proposed_method.png"
-								alt="提案手法のアーキテクチャ"
-								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
-							/>
-						</figure>
 
 						<strong>現状のアプローチ：</strong><br>
 						<ul>
@@ -624,7 +781,103 @@ const skills = [
 						<br>
 					</dialog>
 
-					<!-- 2-3. 広告薬機法チェック LLM 自動化 -->
+					<!-- 2-4. 匿名掲示板アプリの開発 -->
+					<article
+						class="work-card work-card--image-right"
+						data-modal="bulletin-board"
+						role="button"
+						tabindex="0"
+						aria-labelledby="bulletin-board-title" 
+					>
+						<h3>匿名掲示板アプリの開発</h3>
+						<p class="meta">
+							<span>個人でのアプリ開発</span>
+							<span>2021-10 ~ 2021-12</span>
+						</p>
+
+						<div class="work-card__body">
+							<div class="work-card__text">
+							<ul>
+								<li>北大生向け匿名掲示板をRuby on Railsで個人開発</li>
+								<li>キーワード検索＆コメント数ランキング機能を実装し、自主的な調査と問題解決による開発推進力を習得</li>
+							</ul>
+							</div>
+							<figure class="work-card__image">
+							<img
+								src="/img/hokumiru.png"
+								alt="掲示板トップ画面のプレビュー"
+								style="width:100%; border-radius:0.5rem; margin:0;"
+							/>
+							</figure>
+						</div>
+					</article>
+
+					<dialog
+						id="bulletin-board"
+						class="work-modal"
+						role="dialog"
+						aria-modal="true"
+						tabindex="-1"
+					>
+						<button class="close" aria-label="閉じる">×</button>
+						<h3>匿名掲示板アプリの開発</h3>
+						<p class="meta">
+							<br>
+							<span>個人でのアプリ開発</span>
+							<span>（2021-10 ~ 2021-12）</span>
+						</p>
+
+						<figure class="work-image">
+							<img
+								src="/img/hokumiru.png"
+								alt="匿名掲示板の様子"
+								style="width:80%; border-radius:0.5rem; margin:1rem 0;"
+							/>
+						</figure>
+
+						<br>
+						<p>
+							<strong>概要：</strong><br>
+							<ul>
+								<li>北海道大学生専用の匿名掲示板を開発</li>
+							</ul>
+						</p>
+						<br>
+						<p>
+							<strong>使用技術：</strong><br>
+							<ul>
+								<li>言語：Ruby</li>
+								<li>フレームワーク：Ruby on Rails</li>
+							</ul>
+						</p>
+						<br>
+						<p>
+							<strong>アプローチ：</strong><br>
+							<ul>
+								<li>トピック検索機能を実装し、キーワードによる高速検索を可能に</li>
+								<li>コメント数ランキング機能を導入し、人気トピックを可視化</li>
+							</ul>
+						</p>
+						<br>
+						<p>
+						<strong>成果・個人の得られた経験：</strong><br>
+						<ul>
+							<li>技術課題を自主的に解決する能力と開発推進力を習得</li>
+							<li>得られた経験が現在の研究プログラム実装にも貢献</li>
+							<li>ソースコードを公開し、オープンソース開発の基礎を習得</li>
+						</ul>
+						</p>
+						<br>
+						<p>
+						<strong>ソースコード：</strong><br>
+						<ul>
+							<li><a href="https://github.com/kengo6053/hokumiru">github.com/kengo6053/hokumiru</a></li>
+						</ul>
+						</p>
+						<br>
+					</dialog>
+
+					<!-- 2-5. 広告薬機法チェック LLM 自動化 -->
 					<article
 						class="work-card"
 						data-modal="check_LLM"
@@ -654,6 +907,7 @@ const skills = [
 						<button class="close" aria-label="閉じる">×</button>
 						<h3>LLMを用いた薬機法チェック自動化システムの開発</h3>
 						<p class="meta">
+						<br>
 						<span>アルバイトでのチーム開発</span>
 						<span>（2024-1 ~ 2024-6）</span>
 						</p>
@@ -709,89 +963,6 @@ const skills = [
 						<br>
 					</dialog>
 
-					<!-- 2-4. 匿名掲示板の開発 -->
-					<article
-						class="work-card"
-						data-modal="bulletin-board"
-						role="button"        
-						tabindex="0"         
-						aria-labelledby="bulletin-board-title" 
-					>
-						<h3>匿名掲示板の開発</h3>
-						<p class="meta">
-						<span>個人でのアプリ開発</span>
-						<span>2021-10 ~ 2021-12</span>
-						</p>
-
-						<ul>
-						<li>北大生向け匿名掲示板をRuby on Railsで個人開発</li>
-						<li>キーワード検索＆コメント数ランキング機能を実装し、自主的な調査と問題解決による開発推進力を習得</li>
-						</ul>
-					</article>
-
-					<dialog
-						id="bulletin-board"
-						class="work-modal"
-						role="dialog"
-						aria-modal="true"
-						tabindex="-1"
-					>
-						<button class="close" aria-label="閉じる">×</button>
-						<h3>匿名掲示板の開発</h3>
-						<p class="meta">
-							<span>個人でのアプリ開発</span>
-							<span>（2021-10 ~ 2021-12）</span>
-						</p>
-
-						<figure class="work-image">
-							<img
-								src="/img/hokumiru.png"
-								alt="匿名掲示板の様子"
-								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
-							/>
-						</figure>
-
-						<br>
-						<p>
-							<strong>概要：</strong><br>
-							<ul>
-								<li>北海道大学生専用の匿名掲示板を開発</li>
-							</ul>
-						</p>
-						<br>
-						<p>
-							<strong>使用技術：</strong><br>
-							<ul>
-								<li>言語：Ruby</li>
-								<li>フレームワーク：Ruby on Rails</li>
-							</ul>
-						</p>
-						<br>
-						<p>
-							<strong>アプローチ：</strong><br>
-							<ul>
-								<li>トピック検索機能を実装し、キーワードによる高速検索を可能に</li>
-								<li>コメント数ランキング機能を導入し、人気トピックを可視化</li>
-							</ul>
-						</p>
-						<br>
-						<p>
-						<strong>成果・個人の得られた経験：</strong><br>
-						<ul>
-							<li>技術課題を自主的に解決する能力と開発推進力を習得</li>
-							<li>得られた経験が現在の研究プログラム実装にも貢献</li>
-							<li>ソースコードを公開し、オープンソース開発の基礎を習得</li>
-						</ul>
-						</p>
-						<br>
-						<p>
-						<strong>ソースコード：</strong><br>
-						<ul>
-							<li><a href="https://github.com/kengo6053/hokumiru">github.com/kengo6053/hokumiru</a></li>
-						</ul>
-						</p>
-						<br>
-					</dialog>
 					</div>
 				</section>
 				</div>

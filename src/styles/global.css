@@ -220,7 +220,6 @@ h5 {
 }
 
 .stack {
-  <!--display: flex;-->
   flex-direction: column;
 }
 
@@ -383,6 +382,38 @@ h5 {
 .work-card:focus-visible {
   outline: 2px solid var(--accent-regular);
   outline-offset: 2px;
+}
+
+/* 見出し・メタ情報を全幅に */
+.work-card--image-right h3,
+.work-card--image-right .meta {
+  width: 100%;
+}
+
+/* 本文＋画像を左右分割レイアウト */
+.work-card--image-right .work-card__body {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.work-card--image-right .work-card__text {
+  flex: 1;
+}
+.work-card--image-right .work-card__image {
+  flex: 1;
+  max-width: 40%;
+}
+
+/* モバイル対応：下に並べる */
+@media (max-width: 40em) {
+  .work-card--image-right .work-card__body {
+    flex-direction: column;
+  }
+  .work-card--image-right .work-card__image {
+    max-width: 100%;
+    margin-top: 1rem;
+  }
 }
 
 /* ===== Dark overrides ===== */
