@@ -101,6 +101,7 @@ const skills = [
 ---
 
 <BaseLayout>
+	<div class="bg-circles"></div>
 	<div class="page-spacing">
 		<div class="stack gap-30 lg:gap-24">
 			<div class="wrapper stack gap-8 lg:gap-10">
@@ -1117,6 +1118,34 @@ const skills = [
 		</div>
 	</div>
 </BaseLayout>
+
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.querySelector(".bg-circles");
+    const NUM = 20;
+
+    for (let i = 0; i < NUM; i++) {
+      const el = document.createElement("div");
+      el.classList.add("bg-circle");
+      const size = Math.random() * 200 + 50;
+      el.style.width = `${size}px`;
+      el.style.height = `${size}px`;
+      el.style.left = `${Math.random() * 100}%`;
+      el.style.top = `${Math.random() * 100}%`;
+      el.style.backgroundColor = `rgba(200, 190, 220, ${Math.random() * 0.2 + 0.05})`;
+      container.appendChild(el);
+    }
+
+    // スクロール時のアニメーション
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      document.querySelectorAll(".bg-circle").forEach((c, idx) => {
+        const speed = (idx % 5 + 1) * 0.1; // 円ごとに異なる速度
+        c.style.transform = `translateY(-${scrollY * speed}px)`;
+      });
+    });
+  });
+</script>
 
 <style>
 	.hero {
