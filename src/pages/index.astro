@@ -331,7 +331,7 @@ const skills = [
 
 						<figure class="work-image">
 							<img
-								src="/img/Proposed_method.png"
+								src="/img/research_abstract.png"
 								alt="提案手法のアーキテクチャ"
 								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
 							/>
@@ -387,6 +387,92 @@ const skills = [
 						<li>複雑な問題を分解し、要因を整理して解決策を組み立てる力を身に着けました。</li>
 						<li>大規模データを扱い、再現性のある実験を設計・運用する能力を磨きました。</li>
 						<li>企業との共同研究を通じたコミュニケーション力・プロジェクト遂行力を身に着けました。</li>
+						</ul>
+						</p>
+						<br>
+					</dialog>
+
+					<!-- 2-5. 広告薬機法チェック LLM 自動化 -->
+					<article
+						class="work-card"
+						data-modal="check_LLM"
+						role="button"        
+						tabindex="0"         
+						aria-labelledby="check_LLM-title" 
+					>
+						<h3>LLMを用いた薬機法チェック自動化システムの開発</h3>
+						<p class="meta">
+						<span>アルバイトでのチーム開発</span>
+						<span>2024-01 ~ 2024-06</span>
+						</p>
+
+						<ul>
+						<li>アルバイトチームでLLMとOCRを組み合わせ、化粧品広告の薬機法チェックを自動化するシステムを開発</li>
+						<li>コア判定機能の実装とステークホルダー調整を担い、納期内リリースと高評価を実現</li>
+						</ul>
+					</article>
+
+					<dialog
+						id="check_LLM"
+						class="work-modal"
+						role="dialog"
+						aria-modal="true"
+						tabindex="-1"            
+					>
+						<button class="close" aria-label="閉じる">×</button>
+						<h3>LLMを用いた薬機法チェック自動化システムの開発</h3>
+						<p class="meta">
+						<br>
+						<span>アルバイトでのチーム開発</span>
+						<span>（2024-1 ~ 2024-6）</span>
+						</p>
+
+						<br>
+						<p>
+						<strong>概要：</strong><br>
+						<ul>
+						<li>化粧品等の広告が薬機法に違反していないかをチェックする業務について、今まで弁護士が手動で行っていた代わりに、
+						LLMを用いて自動でチェックできるようなシステムを構築するプロジェクトに参加</li>
+						</ul>
+						</p>
+						<br>
+						<p>
+						<strong>自身の担当範囲：</strong><br>
+						<ul>
+						<li>自身は広告PDFのOCR処理から各行テキストを大規模言語モデル（LLM）へ送信し、薬機法違反リスクを自動評価する機能のコア部分を開発</li>
+						</ul>
+						<br>
+						</p>
+
+						<p>
+						<strong>使用技術：</strong><br>
+						<ul>
+						<li>言語：python</li>
+						</ul>
+						</p>
+						<br>
+
+						<p>
+						<strong>アプローチ：</strong><br>
+						<ul>
+						<li>広告PDFからOCR(google vision APIを使用)を用いてテキストを取り出す</li>
+						<li>取り出した各行テキストをLLM APIへ投げて、薬機法違反の可能性をスコアリング</li>
+						<li>プロンプトエンジニアリングによる判定精度の向上</li>
+						<li>製品化されたLLMとオープンソースモデルをファインチューニングしたモデルを比較（最終的に製品化されたLLMを使用）</li>
+						</ul>
+						</p>
+						<br>
+						<strong>成果・個人の得られた経験：</strong><br>
+						<ul>
+						<li>納期内にシステム完成。クライアントから一定の評価を獲得</li>
+						<li>PMとの二人三脚で、計画→実装→レビューの一連を実践</li>
+						<li>法律事務所や仲介企業、受注企業顧問など多様な立場の間で合意形成を経験</li>
+						</ul>
+						<br>
+						<p>
+						<strong>今後の展開：</strong><br>
+						<ul>
+						<li>化粧品以外の広告（医薬部外品、健康食品など）への対応</li>
 						</ul>
 						</p>
 						<br>
@@ -483,92 +569,6 @@ const skills = [
 						<strong>ソースコード：</strong><br>
 						<ul>
 							<li><a href="https://github.com/kengo6053/hokumiru">github.com/kengo6053/hokumiru</a></li>
-						</ul>
-						</p>
-						<br>
-					</dialog>
-
-					<!-- 2-5. 広告薬機法チェック LLM 自動化 -->
-					<article
-						class="work-card"
-						data-modal="check_LLM"
-						role="button"        
-						tabindex="0"         
-						aria-labelledby="check_LLM-title" 
-					>
-						<h3>LLMを用いた薬機法チェック自動化システムの開発</h3>
-						<p class="meta">
-						<span>アルバイトでのチーム開発</span>
-						<span>2024-01 ~ 2024-06</span>
-						</p>
-
-						<ul>
-						<li>アルバイトチームでLLMとOCRを組み合わせ、化粧品広告の薬機法チェックを自動化するシステムを開発</li>
-						<li>コア判定機能の実装とステークホルダー調整を担い、納期内リリースと高評価を実現</li>
-						</ul>
-					</article>
-
-					<dialog
-						id="check_LLM"
-						class="work-modal"
-						role="dialog"
-						aria-modal="true"
-						tabindex="-1"            
-					>
-						<button class="close" aria-label="閉じる">×</button>
-						<h3>LLMを用いた薬機法チェック自動化システムの開発</h3>
-						<p class="meta">
-						<br>
-						<span>アルバイトでのチーム開発</span>
-						<span>（2024-1 ~ 2024-6）</span>
-						</p>
-
-						<br>
-						<p>
-						<strong>概要：</strong><br>
-						<ul>
-						<li>化粧品等の広告が薬機法に違反していないかをチェックする業務について、今まで弁護士が手動で行っていた代わりに、
-						LLMを用いて自動でチェックできるようなシステムを構築するプロジェクトに参加</li>
-						</ul>
-						</p>
-						<br>
-						<p>
-						<strong>自身の担当範囲：</strong><br>
-						<ul>
-						<li>自身は広告PDFのOCR処理から各行テキストを大規模言語モデル（LLM）へ送信し、薬機法違反リスクを自動評価する機能のコア部分を開発</li>
-						</ul>
-						<br>
-						</p>
-
-						<p>
-						<strong>使用技術：</strong><br>
-						<ul>
-						<li>言語：python</li>
-						</ul>
-						</p>
-						<br>
-
-						<p>
-						<strong>アプローチ：</strong><br>
-						<ul>
-						<li>広告PDFからOCR(google vision APIを使用)を用いてテキストを取り出す</li>
-						<li>取り出した各行テキストをLLM APIへ投げて、薬機法違反の可能性をスコアリング</li>
-						<li>プロンプトエンジニアリングによる判定精度の向上</li>
-						<li>製品化されたLLMとオープンソースモデルをファインチューニングしたモデルを比較（最終的に製品化されたLLMを使用）</li>
-						</ul>
-						</p>
-						<br>
-						<strong>成果・個人の得られた経験：</strong><br>
-						<ul>
-						<li>納期内にシステム完成。クライアントから一定の評価を獲得</li>
-						<li>PMとの二人三脚で、計画→実装→レビューの一連を実践</li>
-						<li>法律事務所や仲介企業、受注企業顧問など多様な立場の間で合意形成を経験</li>
-						</ul>
-						<br>
-						<p>
-						<strong>今後の展開：</strong><br>
-						<ul>
-						<li>化粧品以外の広告（医薬部外品、健康食品など）への対応</li>
 						</ul>
 						</p>
 						<br>
