@@ -794,90 +794,6 @@ const skills = [
 					<!-- ここに各作品カード -->
 					<div class="works-grid">
 
-					<!-- 1-1. Silicon Studio Hackathon 2025 -->
-					<article
-						class="work-card work-card--image-right"
-						data-modal="ss-hackathon-2025"
-						role="button"
-						tabindex="0"
-						aria-labelledby="ss-hackathon-2025-title"
-					>
-						<h3 id="ss-hackathon-2025-title">「夏の涼しげな部屋」のシェーダー開発（シリコンスタジオハッカソン2025）</h3>
-						<p class="meta">
-							<span>ハッカソン（個人）での3Dシーン制作</span>
-							<span>2025-08 ~ 2025-09</span>
-						</p>
-
-						<div class="work-card__body">
-							<div class="work-card__text">
-							<ul>
-								<li>シリコンスタジオ株式会社のオンラインハッカソンで制作した、Unityでのシェーダー開発やポストエフェクト開発による3Dシーン作品（3DCGモデルはシリコンスタジオ株式会社が製作）</li>
-								<li>「夏の涼しげな部屋」をテーマに、2Dイラスト調トーンシェーダ（3段階閾値・色濃度可変）をHLSLで実装</li>
-								<li>床は反射カメラ＋RenderTextureでスクリーンスペース反射、天井は発光とメタボール状マスクで動的エフェクトを表現</li>
-							</ul>
-							</div>
-							<figure class="work-card__image">
-							<img
-								src="/img/ss_hackathon_2025_scene.jpg"
-								alt="「夏の涼しげな部屋」シーンのビジュアルプレビュー"
-								style="width:100%; border-radius:0.5rem; margin:0;"
-							/>
-							</figure>
-						</div>
-					</article>
-
-					<dialog
-						id="ss-hackathon-2025"
-						class="work-modal"
-						role="dialog"
-						aria-modal="true"
-						tabindex="-1"
-					>
-						<button class="close" aria-label="閉じる">×</button>
-						<h3>「夏の涼しげな部屋」のシェーダー開発（シリコンスタジオハッカソン2025）</h3>
-						<p class="meta">
-							<br>
-							<span>ハッカソン（個人）での3Dシーン制作</span>
-							<span>（2025-08 ~ 2025-09）</span>
-						</p>
-
-						<figure class="work-image">
-							<video
-								src="/img/SSKK-Hackathon2025_movie.mp4"
-								type="video/mp4"
-								controls
-								style="width:80%; border-radius:0.5rem; margin:1rem 0;"
-							>
-								お使いのブラウザは動画タグをサポートしていません。
-							</video>
-						</figure>
-
-						<p><strong>概要：</strong></p>
-						<ul>
-							<li>「2Dイラスト風 × 水中の涼感」を軸にした室内シーンを制作。</li>
-							<li>質感はURP＋カスタムHLSLで統一、要素ごとにテクスチャ重ね塗りで変化を付与。</li>
-						</ul>
-						<br/>
-
-						<p><strong>技術要素：</strong></p>
-						<ul>
-							<li><b>トーンシェーディング：</b> 光方向と法線の内積から3段階のしきい値で色分け。各段の閾値・色濃度をプロパティで制御。</li>
-							<li><b>床の反射：</b> メインカメラを平面で鏡映した位置に反射カメラを配置。RenderTexture を割り当て、床シェーダで透視投影を考慮して参照。</li>
-							<li><b>天井の発光：</b> 発光成分にメタボール状マスクを合成して動的な明滅を表現。</li>
-							<li><b>ポスト表現：</b> Screen Space Lens Flare を適用し、アクセントを付与。</li>
-						</ul>
-						<br/>
-
-						<p><strong>デザイン面の工夫：</strong></p>
-						<ul>
-							<li>背景（壁・床）はライトブルー、家具はダークブルーに統一して寒暖差を演出。</li>
-							<li>黄色をアクセントカラーに採用し、視線誘導とリズムを付与。</li>
-						</ul>
-						<br/>
-
-						<p><strong>使用技術：</strong> Unity（URP）, HLSL/ShaderLab, RenderTexture, Screen Space Lens Flare</p>
-					</dialog>
-
 					<!-- 1-2. 背景モデル制作「西欧の路地裏」 -->
 					<article
 						class="work-card work-card--image-right"
@@ -1068,6 +984,90 @@ const skills = [
 						<br>
 					</dialog>
 
+					<!-- 1-1. Silicon Studio Hackathon 2025 -->
+					<article
+						class="work-card work-card--image-right"
+						data-modal="ss-hackathon-2025"
+						role="button"
+						tabindex="0"
+						aria-labelledby="ss-hackathon-2025-title"
+					>
+						<h3 id="ss-hackathon-2025-title">「夏の涼しげな部屋」のシェーダー開発（シリコンスタジオハッカソン2025）</h3>
+						<p class="meta">
+							<span>ハッカソン（個人）での3Dシーン制作</span>
+							<span>2025-08 ~ 2025-09</span>
+						</p>
+
+						<div class="work-card__body">
+							<div class="work-card__text">
+							<ul>
+								<li>シリコンスタジオ株式会社のオンラインハッカソンで制作した、Unityでのシェーダー開発やポストエフェクト開発による3Dシーン作品（3DCGモデルはシリコンスタジオ株式会社が製作）</li>
+								<li>「夏の涼しげな部屋」をテーマに、2Dイラスト調トーンシェーダ（3段階閾値・色濃度可変）をHLSLで実装</li>
+								<li>床は反射カメラ＋RenderTextureでスクリーンスペース反射、天井は発光とメタボール状マスクで動的エフェクトを表現</li>
+							</ul>
+							</div>
+							<figure class="work-card__image">
+							<img
+								src="/img/ss_hackathon_2025_scene.jpg"
+								alt="「夏の涼しげな部屋」シーンのビジュアルプレビュー"
+								style="width:100%; border-radius:0.5rem; margin:0;"
+							/>
+							</figure>
+						</div>
+					</article>
+
+					<dialog
+						id="ss-hackathon-2025"
+						class="work-modal"
+						role="dialog"
+						aria-modal="true"
+						tabindex="-1"
+					>
+						<button class="close" aria-label="閉じる">×</button>
+						<h3>「夏の涼しげな部屋」のシェーダー開発（シリコンスタジオハッカソン2025）</h3>
+						<p class="meta">
+							<br>
+							<span>ハッカソン（個人）での3Dシーン制作</span>
+							<span>（2025-08 ~ 2025-09）</span>
+						</p>
+
+						<figure class="work-image">
+							<video
+								src="/img/SSKK-Hackathon2025_movie.mp4"
+								type="video/mp4"
+								controls
+								style="width:80%; border-radius:0.5rem; margin:1rem 0;"
+							>
+								お使いのブラウザは動画タグをサポートしていません。
+							</video>
+						</figure>
+
+						<p><strong>概要：</strong></p>
+						<ul>
+							<li>「2Dイラスト風 × 水中の涼感」を軸にした室内シーンを制作。</li>
+							<li>質感はURP＋カスタムHLSLで統一、要素ごとにテクスチャ重ね塗りで変化を付与。</li>
+						</ul>
+						<br/>
+
+						<p><strong>技術要素：</strong></p>
+						<ul>
+							<li><b>トーンシェーディング：</b> 光方向と法線の内積から3段階のしきい値で色分け。各段の閾値・色濃度をプロパティで制御。</li>
+							<li><b>床の反射：</b> メインカメラを平面で鏡映した位置に反射カメラを配置。RenderTexture を割り当て、床シェーダで透視投影を考慮して参照。</li>
+							<li><b>天井の発光：</b> 発光成分にメタボール状マスクを合成して動的な明滅を表現。</li>
+							<li><b>ポスト表現：</b> Screen Space Lens Flare を適用し、アクセントを付与。</li>
+						</ul>
+						<br/>
+
+						<p><strong>デザイン面の工夫：</strong></p>
+						<ul>
+							<li>背景（壁・床）はライトブルー、家具はダークブルーに統一して寒暖差を演出。</li>
+							<li>黄色をアクセントカラーに採用し、視線誘導とリズムを付与。</li>
+						</ul>
+						<br/>
+
+						<p><strong>使用技術：</strong> Unity（URP）, HLSL/ShaderLab, RenderTexture, Screen Space Lens Flare</p>
+					</dialog>
+
 					</div>
 				</section>
 
@@ -1132,7 +1132,7 @@ const skills = [
       el.style.height = `${size}px`;
       el.style.left = `${Math.random() * 100}%`;
       el.style.top = `${Math.random() * 100}%`;
-      el.style.backgroundColor = `rgba(200, 190, 220, ${Math.random() * 0.2 + 0.05})`;
+      el.style.backgroundColor = `rgba(190, 160, 230, ${Math.random() * 0.2 + 0.05})`;
       container.appendChild(el);
     }
 
