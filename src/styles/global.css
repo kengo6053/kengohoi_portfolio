@@ -593,8 +593,9 @@ h5 {
    ========================================= */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(40px); /* 少し移動距離を増やす */
+  transition: opacity 1.5s ease-out, transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: 0.1s; /* わずかな溜めを作る */
   will-change: opacity, transform;
 }
 

@@ -11,18 +11,20 @@ import WorksSection from '../components/WorksSection.astro';
 
 <BaseLayout>
 	<div class="bg-circles"></div>
+
+	<div class="hero-wrapper">
+		<header class="hero">
+			<Hero
+				title="Kengo Hoi"
+				tagline="Welcome to my portfolio!"
+				align="center"
+			>
+			</Hero>
+		</header>
+	</div>
+
 	<div class="page-spacing">
 		<div class="stack gap-30 lg:gap-24">
-			<div class="wrapper stack gap-8 lg:gap-10">
-				<header class="hero">
-					<Hero
-						title="Kengo Hoi"
-						tagline="Welcome to my portfolio!"
-						align="center"
-					>
-					</Hero>
-				</header>
-			</div>
 
 			<AboutSection />
 			<SkillsList />
@@ -62,8 +64,8 @@ import WorksSection from '../components/WorksSection.astro';
     // === Scroll Reveal Animation ===
     const observerOptions = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.1
+        rootMargin: '0px 0px -10% 0px', // 画面の下端から10%内側に入るまで反応させない
+        threshold: 0.2 // 要素の20%が画面内に入った時にトリガー
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -81,12 +83,73 @@ import WorksSection from '../components/WorksSection.astro';
 </script>
 
 <style>
+	/* Navをフローから外して重ねる */
+	:global(nav) {
+		position: absolute !important;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 10;
+		margin-bottom: 0 !important;
+		background-color: transparent !important; /* 背景透過 */
+		border-bottom: none !important;
+		box-shadow: none !important;
+	}
+	/* PC表示でのsticky解除と背景調整 */
+	@media (min-width: 50em) {
+		:global(nav) {
+			position: absolute !important;
+			backdrop-filter: none !important;
+		}
+	}
+
+	/* 垂直中央揃えを完璧にするためのリセット */
+	:global(.hero h1) {
+		margin-bottom: 0 !important;
+		font-size: clamp(3rem, 10vw, 5rem) !important; /* 画面幅に応じて可変（最小3rem〜最大5rem） */
+		line-height: 1.1;
+	}
+	@media (min-width: 50em) {
+		:global(.hero h1) {
+			font-size: 5rem !important; /* PC表示ではさらに巨大に */
+		}
+	}
+
+	:global(.hero .tagline) {
+		margin-top: 1rem !important; /* サイズ拡大に合わせて間隔も少し調整 */
+		font-size: var(--text-lg) !important;
+	}
+
+	@media (min-width: 50em) {
+		:global(.hero .tagline) {
+			font-size: var(--text-xl) !important;
+		}
+	}
+
+	.hero-wrapper {
+		/* 通常フローに戻すことで重なりを物理的に排除 */
+		min-height: 100vh;
+		min-height: 140dvh;
+		
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		
+		/* Navバーの分だけ上を空けて、視覚的な重心を下げる */
+		padding-top: 8rem; 
+		padding-bottom: 8rem; /* 上下対称 */
+		padding-inline: 1.5rem;
+		box-sizing: border-box;
+		
+		/* z-index は不要 */
+	}
+
 	.hero {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 2rem;
-  		margin-bottom: 6rem; 	/* モバイルでの下マージン拡大 */
+		/* gap は Hero コンポーネント内部で制御されるため、ここでは不要か最小限に */
 	}
 
 	.roles {
@@ -107,7 +170,6 @@ import WorksSection from '../components/WorksSection.astro';
 			grid-template-columns: 1fr;
 			padding-inline: 2.5rem;
 			gap: 3.75rem;
-		  	margin-bottom: 10rem; /* PCでの下マージン拡大 */
 		}
 
 		.roles {
@@ -123,9 +185,12 @@ import WorksSection from '../components/WorksSection.astro';
 		}
 	}
 
-	.page-spacing { padding-block: 8rem; }     /* 上下のベースパディング拡大 */
+	.page-spacing {
+		/* padding-block は各セクションの .section-space で確保されているため削除 */
+	}
+	/* PC用メディアクエリ内も削除 */
 	@media (min-width: 50em) {
-		.page-spacing { padding-block: 12rem; }   /* PCでのパディング拡大 */
+		/* .page-spacing { padding-block: 12rem; } 削除 */
 	}
 
 	/* 背景円全体ラッパー */
