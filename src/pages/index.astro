@@ -83,26 +83,6 @@ import WorksSection from '../components/WorksSection.astro';
 </script>
 
 <style>
-	/* Navをフローから外して重ねる */
-	:global(nav) {
-		position: absolute !important;
-		top: 0;
-		left: 0;
-		width: 100%;
-		z-index: 10;
-		margin-bottom: 0 !important;
-		background-color: transparent !important; /* 背景透過 */
-		border-bottom: none !important;
-		box-shadow: none !important;
-	}
-	/* PC表示でのsticky解除と背景調整 */
-	@media (min-width: 50em) {
-		:global(nav) {
-			position: absolute !important;
-			backdrop-filter: none !important;
-		}
-	}
-
 	/* 垂直中央揃えを完璧にするためのリセット */
 	:global(.hero h1) {
 		margin-bottom: 0 !important;
@@ -129,7 +109,7 @@ import WorksSection from '../components/WorksSection.astro';
 	.hero-wrapper {
 		/* 通常フローに戻すことで重なりを物理的に排除 */
 		min-height: 100vh;
-		min-height: 140dvh;
+		min-height: 112dvh;
 		
 		display: flex;
 		flex-direction: column;
