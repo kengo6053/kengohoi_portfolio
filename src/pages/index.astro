@@ -283,7 +283,7 @@ const skills = [
 					<!-- ========= WORK LIST ========= -->
 					<div class="works-grid">
 
-					<!-- 2-3. ステレオカメラ E2E 自動運転研究 -->
+					<!-- 2-1. ステレオカメラ E2E 自動運転研究 -->
 					<article
 						class="work-card work-card--image-right"
 						data-modal="modal-e2e"
@@ -394,7 +394,7 @@ const skills = [
 						<br>
 					</dialog>
 
-					<!-- 2-5. 広告薬機法チェック LLM 自動化 -->
+					<!-- 2-2. 広告薬機法チェック LLM 自動化 -->
 					<article
 						class="work-card"
 						data-modal="check_LLM"
@@ -480,7 +480,7 @@ const skills = [
 						<br>
 					</dialog>
 
-					<!-- 2-4. 匿名掲示板アプリの開発 -->
+					<!-- 2-3. 匿名掲示板アプリの開発 -->
 					<article
 						class="work-card work-card--image-right"
 						data-modal="bulletin-board"
@@ -576,7 +576,7 @@ const skills = [
 						<br>
 					</dialog>
 
-					<!-- 2-2. 2D物理エンジンの開発（コーエーテクモ サマーインターンシップ2025） -->
+					<!-- 2-4. 2D物理エンジンの開発（コーエーテクモ サマーインターンシップ2025） -->
 					<article
 						class="work-card work-card--image-right"
 						data-modal="2D-physics-engine-development"
@@ -681,7 +681,7 @@ const skills = [
 						</p>
 					</dialog>
 
-					<!-- 2-1. ツール開発：Blender プラグインカード -->
+					<!-- 2-5. ツール開発：Blender プラグインカード -->
 					<article
 						class="work-card work-card--image-right"
 						data-modal="Blender-plugin-tool-development"
@@ -785,6 +785,128 @@ const skills = [
 						<br>
 						<br>
 					</dialog>
+
+					<!-- 2-6. ゲーム開発：Three Steps Mage -->
+					<article
+						class="work-card work-card--image-right"
+						data-modal="Game-ThreeStepsMage"
+						role="button"
+						tabindex="0"
+						aria-labelledby="Game-ThreeStepsMage-title"
+					>
+						<h3 id="Game-ThreeStepsMage-title">2Dゲーム「Three Steps Mage」の開発</h3>
+						<p class="meta">
+							<span>チームでのゲーム開発</span>
+							<span>2025-12 ~ 2025-12</span>
+						</p>
+
+						<div class="work-card__body">
+							<div class="work-card__text">
+								<ul>
+									<li>「スライド移動 × 1ターン3行動」を核としたターン制パズルゲームを制作</li>
+									<li>ギミック拡張を前提とした疎結合なシステム設計を担当</li>
+									<li>マップ制作をインスペクター上で完結させるデータ駆動型ワークフローを構築</li>
+								</ul>
+							</div>
+							<figure class="work-card__image">
+								<img
+									src="/img/ThreeStepsMaze/ThreeStepsMaze_PlayerTurn.png"
+									alt="Three Steps Mage ゲーム画面"
+									style="width:100%; border-radius:0.5rem; margin:0;"
+								/>
+							</figure>
+						</div>
+					</article>
+
+					<dialog
+						id="Game-ThreeStepsMage"
+						class="work-modal"
+						role="dialog"
+						aria-modal="true"
+						tabindex="-1"
+					>
+						<button class="close" aria-label="閉じる">×</button>
+
+						<h3>2Dゲーム「Three Steps Mage」の開発</h3>
+						<p class="meta">
+							<span>チームでのゲーム開発（TA担当）</span>
+							<span>（2025-12 ~ 2025-12）</span>
+						</p>
+
+						<figure class="work-image">
+							<video
+								"/img/ThreeStepsMaze/ThreeStepsMaze_PlayingVideo.mp4"
+								type="video/mp4"
+								controls
+								style="width:100%; border-radius:0.5rem; margin:1rem 0;"
+							>
+								お使いのブラウザは動画タグをサポートしていません。
+							</video>
+						</figure>
+
+						<br>
+
+						<p><strong>プロジェクト概要：</strong><br>
+							「止まれないスライド移動」と「1ターン3行動」を組み合わせた、
+							短時間で高密度な戦略性を味わえるターン制迷路パズルゲームです。
+							ターン終了時に罠が一斉に作動するため、位置取りと先読みが重要になります。
+						</p>
+
+						<br>
+
+						<p><strong>遊び方：</strong></p>
+						<ul>
+							<li>上下左右の入力で、壁に当たるまで直進移動</li>
+							<li>1ターンにつき最大3回まで行動可能</li>
+							<li>3回行動後、大砲や針などのギミックが一斉に作動</li>
+							<li>危険を避け、ゴールマスで停止するとクリア</li>
+						</ul>
+
+						<br>
+
+						<p><strong>担当範囲（システム・バックエンド）：</strong></p>
+						<ul>
+							<li>TurnManagerによるターン制状態管理（行動 → 判定 → ギミック実行）</li>
+							<li>BaseGimmickを用いた拡張性の高いギミック設計</li>
+							<li>Unity座標と論理グリッド座標を分離した堅牢なロジック構築</li>
+						</ul>
+
+						<br>
+
+						<p><strong>こだわりの演出実装：</strong></p>
+						<ul>
+							<li>PlayerVisualControllerにより、ロジックと見た目を分離</li>
+							<li>移動方向に応じた自然な回転・滑らかな動きの制御</li>
+							<li>罠の作動タイミングを視覚的に伝える予兆表現を実装</li>
+						</ul>
+
+						<br>
+
+						<p><strong>自動化・制作効率化への取り組み：</strong></p>
+						<ul>
+							<li>PrototypeSetupツールにより、必要なマネージャー群を1クリックで配置</li>
+							<li>プロトタイプ制作時の初期セットアップ工数を大幅に削減</li>
+						</ul>
+
+						<br>
+
+						<p><strong>工夫した点（マップ制作）：</strong></p>
+						<ul>
+							<li>ScriptableObject（GridData / StageMap）によるデータ駆動型レベル設計</li>
+							<li>Unityインスペクター上で直感的にマス・ギミックを配置可能</li>
+							<li>ステージ量産・調整の高速化とGit競合リスクの低減を実現</li>
+						</ul>
+
+						<br>
+
+						<p><strong>使用技術：</strong></p>
+						<ul>
+							<li>Unity / URP / C# / Git</li>
+						</ul>
+
+						<br><br>
+					</dialog>
+
 
 					</div>
 				</section>
