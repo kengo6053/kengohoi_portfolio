@@ -24,7 +24,7 @@ links:
 ---
 
 <figure class="work-image">
-  <img src="/img/blender_plugin_1_workflow.png" alt="ワークフロー改善を示すフローチャート" style="width:100%; border-radius:0.5rem; margin:1rem 0;" />
+  <img src="/img/blender_plugin_1_workflow.png" alt="ワークフロー改善を示すフローチャート" style="width:80%; border-radius:0.5rem; margin:1rem 0;" />
 </figure>
 
 **開発の動機：**  

@@ -20,7 +20,7 @@ techs:
 ---
 
 <figure class="work-image">
-  <img src="/img/environment_modeling_2_no_texture.png" alt="テクスチャ抜きのモデルの画像" style="width:100%; border-radius:0.5rem; margin:1rem 0;" />
+  <img src="/img/environment_modeling_2_no_texture.png" alt="テクスチャ抜きのモデルの画像" style="width:80%; border-radius:0.5rem; margin:1rem 0;" />
 </figure>
 
 **概要：**  
