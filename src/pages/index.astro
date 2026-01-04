@@ -86,7 +86,7 @@ import WorksSection from '../components/WorksSection.astro';
 		flex-direction: column;
 		align-items: center;
 		gap: 2rem;
-  		margin-bottom: 3rem; 	
+  		margin-bottom: 6rem; 	/* モバイルでの下マージン拡大 */
 	}
 
 	.roles {
@@ -107,7 +107,7 @@ import WorksSection from '../components/WorksSection.astro';
 			grid-template-columns: 1fr;
 			padding-inline: 2.5rem;
 			gap: 3.75rem;
-		  	margin-bottom: 3rem; 
+		  	margin-bottom: 10rem; /* PCでの下マージン拡大 */
 		}
 
 		.roles {
@@ -123,9 +123,9 @@ import WorksSection from '../components/WorksSection.astro';
 		}
 	}
 
-	.page-spacing { padding-block: 4rem; }     /* モバイル基準 */
+	.page-spacing { padding-block: 8rem; }     /* 上下のベースパディング拡大 */
 	@media (min-width: 50em) {
-		.page-spacing { padding-block: 6rem; }   /* 大画面で拡大 */
+		.page-spacing { padding-block: 12rem; }   /* PCでのパディング拡大 */
 	}
 
 	/* 背景円全体ラッパー */
