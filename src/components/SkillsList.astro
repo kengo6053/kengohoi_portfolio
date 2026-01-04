@@ -91,8 +91,8 @@ const skills = [
 		<div class="skills-grid">
 		{skills
 			.filter(skill => ['Unity','HLSL','C#','Blender'].includes(skill.name))
-			.map(({ name, level, desc }) => (
-			<div class="skill-card">
+			.map(({ name, level, desc }, i) => (
+			<div class={`skill-card scroll-reveal delay-${(i % 5 + 1) * 100}`}>
 				<h3>{name}</h3>
 				<p class="stars">{'★'.repeat(level)}{'☆'.repeat(5 - level)}</p>
 				<p class="desc">{desc}</p>
@@ -108,8 +108,8 @@ const skills = [
 		<div class="skills-grid">
 		{skills
 			.filter(skill => ['Python','C++','C'].includes(skill.name))
-			.map(({ name, level, desc }) => (
-			<div class="skill-card">
+			.map(({ name, level, desc }, i) => (
+			<div class={`skill-card scroll-reveal delay-${(i % 5 + 1) * 100}`}>
 				<h3>{name}</h3>
 				<p class="stars">{'★'.repeat(level)}{'☆'.repeat(5 - level)}</p>
 				<p class="desc">{desc}</p>
@@ -125,8 +125,8 @@ const skills = [
 		<div class="skills-grid">
 		{skills
 			.filter(skill => ['Ruby/Ruby on Rails','HTML / CSS'].includes(skill.name))
-			.map(({ name, level, desc }) => (
-			<div class="skill-card">
+			.map(({ name, level, desc }, i) => (
+			<div class={`skill-card scroll-reveal delay-${(i % 5 + 1) * 100}`}>
 				<h3>{name}</h3>
 				<p class="stars">{'★'.repeat(level)}{'☆'.repeat(5 - level)}</p>
 				<p class="desc">{desc}</p>
@@ -142,8 +142,8 @@ const skills = [
 		<div class="skills-grid-bottom">
 		{skills
 			.filter(skill => ['MATLAB','Linux（WSL2）'].includes(skill.name))
-			.map(({ name, level, desc }) => (
-			<div class="skill-card">
+			.map(({ name, level, desc }, i) => (
+			<div class={`skill-card scroll-reveal delay-${(i % 5 + 1) * 100}`}>
 				<h3>{name}</h3>
 				<p class="stars">{'★'.repeat(level)}{'☆'.repeat(5 - level)}</p>
 				<p class="desc">{desc}</p>

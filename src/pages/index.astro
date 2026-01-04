@@ -34,6 +34,7 @@ import WorksSection from '../components/WorksSection.astro';
 
 <script type="module">
   document.addEventListener("DOMContentLoaded", () => {
+    // === 背景円のアニメーション ===
     const container = document.querySelector(".bg-circles");
     const NUM = 20;
 
@@ -57,6 +58,25 @@ import WorksSection from '../components/WorksSection.astro';
         c.style.transform = `translateY(-${scrollY * speed}px)`;
       });
     });
+
+    // === Scroll Reveal Animation ===
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target); // 一度表示されたら監視終了
+            }
+        });
+    }, observerOptions);
+
+    const elements = document.querySelectorAll('.scroll-reveal');
+    elements.forEach(el => observer.observe(el));
   });
 </script>
 

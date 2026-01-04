@@ -18,7 +18,7 @@ const hasImage = !!work.data.img;
 ---
 
 <article
-	class:list={['work-card', { 'work-card--has-image': hasImage }]}
+	class:list={['work-card', 'scroll-reveal', { 'work-card--has-image': hasImage }]}
 	data-modal={`modal-${work.id}`}
 	role="button"
 	tabindex="0"
