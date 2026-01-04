@@ -4,8 +4,8 @@ order: 30
 classification: programming
 title: 匿名掲示板アプリの開発
 description: 
-  - 北大生向け匿名掲示板をRuby on Railsで開発。
-  - キーワード検索＆コメント数ランキング機能を実装。
+  - 北大生向け匿名掲示板をRuby on Railsで開発しました。
+  - キーワード検索＆コメント数ランキング機能を実装しました。
 publishDate: 2021-12-01 00:00:00
 tags:
   - Ruby

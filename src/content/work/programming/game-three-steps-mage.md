@@ -4,8 +4,8 @@ order: 20
 classification: programming
 title: 2Dゲーム「Three Steps Mage」の開発
 description: 
-  - 「スライド移動 × 1ターン3行動」を核としたターン制パズルゲーム。
-  - ギミック拡張を前提とした疎結合なシステム設計を担当。
+  - 「スライド移動 × 1ターン3行動」を核としたターン制パズルゲームです。
+  - ギミック拡張を前提とした疎結合なシステム設計を担当しました。
 publishDate: 2025-12-01 00:00:00
 tags:
   - Unity
