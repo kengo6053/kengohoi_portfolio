@@ -1,0 +1,225 @@
+---
+import Hero from './Hero.astro';
+
+const skills = [
+	{
+		name: 'Blender',
+		level: 3,
+		desc:
+		'経験 1 年。自作キャラクターモデルや西洋風の街並みなど簡単な環境モデルを制作。今後も積極的に制作予定。',
+	},
+	{
+		name: 'Python',
+		level: 4,
+		desc:
+		'経験 4 年。自動運転 E2E モデルの構築や、広告 PDF を OCR → 各行を LLM で評価するシステムのコア開発を担当。大学授業の機械学習コンペ（アボカド価格予測）でもチームで活用。',
+	},
+	{
+		name: 'C',
+		level: 4,
+		desc:
+		'経験 3 年。大学・大学院の授業・ティーチングアシスタントで使用',
+	},
+	{
+		name: 'Unity',
+		level: 3,
+		desc:
+		'経験 6 カ月。シェーダーの開発や Blender で作成したキャラクターモデルの動作確認に使用。',
+	},
+	{
+		name: 'C#',
+		level: 3,
+		desc:
+		'経験 6 カ月。UnityにおけるMeshRendererを用いないメッシュ作成・描画スクリプトを作成。',
+	},
+	{
+		name: 'HLSL',
+		level: 3,
+		desc:
+		'経験 6 カ月。ハッカソンや長期インターンにおいて、Unityで用いるシェーダーを開発。',
+	},
+	{
+		name: 'C++',
+		level: 3,
+		desc:
+		'経験 6 カ月。ゲーム会社のインターンで簡易的な2D物理エンジンを開発。',
+	},
+	{
+		name: 'Ruby/Ruby on Rails',
+		level: 3,
+		desc:
+		'経験 2 年。簡易匿名掲示板や図書館蔵書検索サイトなどを開発。',
+	},
+	{
+		name: 'HTML / CSS',
+		level: 3,
+		desc:
+		'経験 2 年。部活・サークルのサイトや各種 Web サイトを制作。',
+	},
+	{
+		name: 'MATLAB',
+		level: 2,
+		desc:
+		'経験 6 カ月。画像処理や音源分離のプログラムを勉強。',
+	},
+	{
+		name: 'Java',
+		level: 2,
+		desc:
+		'経験 2 カ月。大学授業で 2 か月使用。',
+	},
+	{
+		name: 'Linux（WSL2）',
+		level: 4,
+		desc:
+		'経験 4 年。開発環境として WSL2 を使用し、シェルスクリプトを含む開発全般を経験。',
+	},
+];
+---
+
+<section id="Skills" class="section-space">
+	<div class="wrapper stack gap-14 lg:gap-12">
+		<header class="hero-center">
+		<Hero title="Skills" tagline="自分が習得したスキルの紹介です。" align="center" />
+		</header>
+
+		<!-- ======================= -->
+		<!-- 🎮 グラフィックス / ゲームエンジン・シェーダ -->
+		<!-- ======================= -->
+		<h2 class="subsection-title-skills">🎮 グラフィックス / ゲームエンジン・シェーダ</h2>
+		<p class="subsection-desc-skills">Unity・Blender・HLSLなど、リアルタイムCGやシェーダー開発に関するスキルです。</p>
+		<div class="skills-grid">
+		{skills
+			.filter(skill => ['Unity','HLSL','C#','Blender'].includes(skill.name))
+			.map(({ name, level, desc }) => (
+			<div class="skill-card">
+				<h3>{name}</h3>
+				<p class="stars">{'★'.repeat(level)}{'☆'.repeat(5 - level)}</p>
+				<p class="desc">{desc}</p>
+			</div>
+			))}
+		</div>
+
+		<!-- ======================= -->
+		<!-- 💻 汎用プログラミング言語 -->
+		<!-- ======================= -->
+		<h2 class="subsection-title-skills">💻 汎用プログラミング言語</h2>
+		<p class="subsection-desc-skills">基礎的な開発力を支える主要言語です。</p>
+		<div class="skills-grid">
+		{skills
+			.filter(skill => ['Python','C++','C'].includes(skill.name))
+			.map(({ name, level, desc }) => (
+			<div class="skill-card">
+				<h3>{name}</h3>
+				<p class="stars">{'★'.repeat(level)}{'☆'.repeat(5 - level)}</p>
+				<p class="desc">{desc}</p>
+			</div>
+			))}
+		</div>
+
+		<!-- ======================= -->
+		<!-- 🌐 Web / マークアップ言語 -->
+		<!-- ======================= -->
+		<h2 class="subsection-title-skills">🌐 Web / マークアップ言語</h2>
+		<p class="subsection-desc-skills">Webアプリやサイト制作など、フロントエンド寄りの開発スキルです。</p>
+		<div class="skills-grid">
+		{skills
+			.filter(skill => ['Ruby/Ruby on Rails','HTML / CSS'].includes(skill.name))
+			.map(({ name, level, desc }) => (
+			<div class="skill-card">
+				<h3>{name}</h3>
+				<p class="stars">{'★'.repeat(level)}{'☆'.repeat(5 - level)}</p>
+				<p class="desc">{desc}</p>
+			</div>
+			))}
+		</div>
+
+		<!-- ======================= -->
+		<!-- ⚙️ その他 -->
+		<!-- ======================= -->
+		<h2 class="subsection-title-skills">⚙️ その他</h2>
+		<p class="subsection-desc-skills">数値解析や開発環境構築など、周辺技術のスキルです。</p>
+		<div class="skills-grid-bottom">
+		{skills
+			.filter(skill => ['MATLAB','Linux（WSL2）'].includes(skill.name))
+			.map(({ name, level, desc }) => (
+			<div class="skill-card">
+				<h3>{name}</h3>
+				<p class="stars">{'★'.repeat(level)}{'☆'.repeat(5 - level)}</p>
+				<p class="desc">{desc}</p>
+			</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	/* index.astro から必要なスタイルを移動 */
+	.section-space { padding-block: 6rem; }
+	.hero-center {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		margin-bottom: 5rem;
+	}
+	.wrapper { max-width: 1500px; margin-inline: auto; padding-inline: 1rem; }
+
+	.subsection-title-skills {
+		font-size: var(--text-2_5xl);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.75rem;
+		margin-top: 5rem;
+		margin-bottom: 1rem;
+		color: var(--gray-100);
+		text-align: center;
+		border-left: none;
+	}
+	.subsection-desc-skills {
+		font-size: var(--text-md);
+		color: var(--gray-400);
+		margin-bottom: 3rem;
+		text-align: center;
+	}
+
+	.skills-grid, .skills-grid-bottom {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 1.5rem;
+		margin-inline: auto;
+		max-width: 1200px;
+	}
+	.skills-grid { margin-bottom: 7rem; }
+	.skills-grid-bottom { margin-bottom: 3rem; }
+
+	.skill-card {
+		background: var(--gray-950);
+		border: 1px solid var(--gray-800);
+		border-radius: 1rem;
+		padding: 1.5rem;
+		box-shadow: var(--shadow-sm);
+		transition: transform .2s, box-shadow .2s;
+	}
+	.skill-card:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--shadow-md);
+	}
+	.skill-card h3 { font-size: 1.1rem; margin: 0 0 .25rem 0; color: var(--gray-0); }
+	.stars { color: var(--accent-regular); letter-spacing: .1em; margin-bottom: .5rem; }
+	.desc { font-size: .875rem; line-height: 1.5; color: var(--gray-300); }
+
+	@media (max-width: 40em) {
+		.subsection-title-skills {
+			font-size: var(--text-2xl);
+			margin-top: 5rem;
+			margin-bottom: 1rem;
+		}
+		.subsection-desc-skills {
+			font-size: var(--text-base);
+			margin-top: 2rem;
+			margin-bottom: 2rem;
+		}
+	}
+</style>

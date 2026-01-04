@@ -1,0 +1,113 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	work: CollectionEntry<'work'>;
+}
+
+const { work } = Astro.props;
+
+// カードのレイアウトタイプを決定（画像が右にあるタイプか、標準タイプか）
+// ここでは簡易的に、Programming系とVisual系でCSSクラスを使い分ける想定ですが、
+// 元のコードに合わせて `work-card--image-right` クラスを条件付きで付与します。
+// 例: 画像がある場合は image-right スタイルを適用するなど。
+// 今回は元の index.astro のロジックを再現するため、全てのカードに共通のスタイルを適用しつつ、
+// 画像がある場合は右側に表示するレイアウトに対応させます。
+
+const hasImage = !!work.data.img;
+---
+
+<article
+	class:list={['work-card', { 'work-card--has-image': hasImage }]}
+	data-modal={`modal-${work.id}`}
+	role="button"
+	tabindex="0"
+	aria-labelledby={`work-${work.id}-title`}
+>
+	<div class="work-card__content">
+		<h3 id={`work-${work.id}-title`}>{work.data.title}</h3>
+		<p class="meta">
+			<span>{work.data.subtitle || 'Personal Project'}</span>
+			<span>{work.data.productionDate || work.data.publishDate.getFullYear()}</span>
+		</p>
+
+		<div class="work-card__text">
+			<ul>
+				{Array.isArray(work.data.description) ? (
+					work.data.description.map((desc) => <li>{desc}</li>)
+				) : (
+					<li>{work.data.description}</li>
+				)}
+			</ul>
+		</div>
+	</div>
+	
+	{hasImage && (
+		<figure class="work-card__image-container">
+			<img
+				src={work.data.img}
+				alt={work.data.img_alt || ''}
+				loading="lazy"
+			/>
+		</figure>
+	)}
+</article>
+
+<style>
+	.work-card {
+		display: flex;
+		flex-direction: column;
+		padding: 0; /* パディングを解除して画像を端まで寄せる */
+		overflow: hidden; /* 角丸を画像にも適用させる */
+		height: 100%;
+	}
+
+	.work-card__content {
+		padding: 1.5rem;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.work-card__text {
+		margin-top: 1rem;
+		flex: 1;
+	}
+
+	.work-card__text ul {
+		list-style: disc;
+		padding-left: 1.25rem;
+		line-height: 1.5;
+		font-size: 0.95rem;
+	}
+
+	.work-card__image-container {
+		width: 100%;
+		height: 200px; /* モバイルでは上（または下）に一定の高さで表示 */
+		margin: 0;
+	}
+
+	.work-card__image-container img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover; /* 縦横比を維持したまま埋める */
+	}
+
+	@media (min-width: 50em) {
+		.work-card--has-image {
+			flex-direction: row; /* 横並び */
+			align-items: stretch;
+		}
+
+		.work-card__content {
+			padding: 2rem;
+			flex: 1.5;
+		}
+
+		.work-card__image-container {
+			flex: 1;
+			height: auto; /* 縦幅いっぱい */
+			max-width: 40%;
+		}
+	}
+</style>

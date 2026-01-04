@@ -1,0 +1,200 @@
+---
+import { getCollection } from 'astro:content';
+import Hero from './Hero.astro';
+import WorkCard from './WorkCard.astro';
+import WorkModal from './WorkModal.astro';
+
+// Content Fetching
+const allWorks = (await getCollection('work', ({ data }) => {
+	return data.draft !== true;
+})).sort((a, b) => {
+	if (a.data.order !== undefined && b.data.order !== undefined) {
+		return a.data.order - b.data.order;
+	}
+	if (a.data.order !== undefined) return -1;
+	if (b.data.order !== undefined) return 1;
+	return b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+});
+
+const visualWorks = allWorks.filter(work => work.data.classification === 'visual');
+const programmingWorks = allWorks.filter(work => work.data.classification === 'programming');
+---
+
+<section id="works"  class="section-space">
+	<div class="wrapper stack gap-12 lg:gap-10">
+
+	<header class="hero-center">
+	<Hero title="Works" align="center">
+		<p class="hero-tagline">
+		自分のこれまでの活動・制作実績の紹介です。<br />
+		カードをクリックすると、詳細をご覧になれます。
+		</p>
+	</Hero>
+	</header>
+
+	<section id="programming">
+		<h2 class="subsection-title">💻 Programming / Technical Works</h2>
+		<p class="subsection-desc">研究・開発・ツール制作など、技術的なアプローチによる制作物をまとめています。</p>
+		
+		<div class="works-grid">
+			{programmingWorks.map((work) => (
+				<>
+					<WorkCard work={work} />
+					<WorkModal work={work} />
+				</>
+			))}
+		</div>
+	</section>
+
+	<section id="visual">
+		<h2 class="subsection-title">🎨 3D Modeling / Visual Works</h2>
+		<p class="subsection-desc">BlenderやUnityなどの3DCGツールを用い、ビジュアル表現や世界観づくりに挑戦した作品をまとめています。</p>
+		
+		<div class="works-grid">
+			{visualWorks.map((work) => (
+				<>
+					<WorkCard work={work} />
+					<WorkModal work={work} />
+				</>
+			))}
+		</div>
+	</section>
+
+	</div>
+</section>
+
+<script>
+	/* ─────────────────────────────────────────────
+	カード ↔ モーダル間のフォーカス遷移 + Enter/Space 対応
+	──────────────────────────────────────────── */
+	// スクリプトもここに移動
+	document.addEventListener('astro:page-load', () => {
+		// View Transitionsを使っている場合の考慮（今回は使っていないかもしれないが念のため）
+		initModals();
+	});
+	
+	// 通常のロード時用
+	initModals();
+
+	function initModals() {
+		const cards = document.querySelectorAll('.work-card[role="button"]');
+		let lastFocused: HTMLElement | null = null;
+
+		cards.forEach(card => {
+			/* クリックまたはキー操作でモーダルを開く */
+			const openModal = () => {
+				const modalId = (card as HTMLElement).dataset.modal;
+				if (!modalId) return;
+				const dlg = document.getElementById(modalId) as HTMLDialogElement;
+				if (!dlg) return;
+				
+				lastFocused = card as HTMLElement;
+				dlg.showModal();
+				
+				// モーダル内の動画を遅延読み込み（オプション）
+				const video = dlg.querySelector('video');
+				if (video && video.preload === 'none' && video.dataset.src) {
+					// 必要ならここでsrcをセットする処理を追加可
+				}
+
+				dlg.focus();
+			};
+
+			card.addEventListener('click', openModal);
+
+			/* Enter または Space で開く */
+			card.addEventListener('keydown', (e: Event) => {
+				const keyboardEvent = e as KeyboardEvent;
+				if (keyboardEvent.key === 'Enter' || keyboardEvent.key === ' ') {
+					e.preventDefault();
+					openModal();
+				}
+			});
+		});
+
+		/* モーダル側 — クリック / ESC で閉じる → 元のカードに戻す */
+		document.querySelectorAll('.work-modal').forEach(dlg => {
+			dlg.addEventListener('click', e => {
+				const target = e.target as HTMLElement;
+				if (target.classList.contains('close') || target === dlg) {
+					(dlg as HTMLDialogElement).close();
+				}
+			});
+			dlg.addEventListener('close', () => {
+				// 閉じたときに動画を停止する
+				const video = dlg.querySelector('video');
+				if (video) {
+					video.pause();
+				}
+				
+				if (lastFocused) lastFocused.focus();
+			});
+		});
+	}
+</script>
+
+<style>
+	/* index.astro から必要なスタイルを移動 */
+	.section-space { padding-block: 6rem; }
+	.hero-center {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		margin-bottom: 5rem;
+	}
+	.wrapper { max-width: 1500px; margin-inline: auto; padding-inline: 1rem; }
+
+	.subsection-title {
+		font-size: var(--text-2_5xl);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.75rem;
+		margin-top: 3rem;
+		margin-bottom: 1rem;
+		color: var(--gray-100);
+		text-align: center;
+		border-left: none;
+	}
+	.subsection-desc {
+		font-size: var(--text-md);
+		color: var(--gray-400);
+		margin-bottom: 2rem;
+		text-align: center;
+	}
+
+	.works-grid {
+		display: flex; 
+		flex-direction: column;
+		gap: 3rem;
+	}
+	
+	/* Category separator */
+	#works section + section {
+		margin-top: 4rem;
+		border-top: 1px solid var(--gray-800);
+		padding-top: 1rem;
+	}
+
+	@media (min-width: 50em) {
+		.works-grid {
+			display: flex;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 4rem;
+		}
+	}
+
+	@media (max-width: 40em) {
+		.subsection-title {
+			font-size: var(--text-2xl);
+			margin-top: 2rem;
+			margin-bottom: 1rem;
+		}
+		.subsection-desc {
+			font-size: var(--text-base);
+			margin-bottom: 2rem;
+		}
+		.works-grid { gap: 1rem; }
+	}
+</style>

@@ -337,7 +337,7 @@ h5 {
 
 /* ===== Work card (Light default) ===== */
 .work-card {
-  background: var(--gray-50);
+  background: var(--gray-900); /* Modified to be light in light mode */
   color: var(--gray-0); /* ← 本文は“黒”トークン */
   border: 1px solid var(--gray-200);
   border-radius: 1.25rem;
@@ -377,7 +377,7 @@ h5 {
 .work-card:focus-visible {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
-  background-color: var(--gray-100);
+  background-color: var(--gray-800);
 }
 .work-card:focus-visible {
   outline: 2px solid var(--accent-regular);

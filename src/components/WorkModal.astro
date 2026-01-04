@@ -1,0 +1,231 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+
+interface Props {
+	work: CollectionEntry<'work'>;
+}
+
+const { work } = Astro.props;
+const { Content } = await render(work);
+---
+
+<dialog
+	id={`modal-${work.id}`}
+	class="work-modal"
+	role="dialog"
+	aria-modal="true"
+	tabindex="-1"
+>
+	<button class="close" aria-label="閉じる">×</button>
+	<h3>{work.data.title}</h3>
+	<p class="meta">
+		<span>{work.data.role}</span>
+		<span>（{work.data.productionDate}）</span>
+	</p>
+
+	{/* 動画がある場合は動画を表示、なければ画像を表示 */}
+	{work.data.video ? (
+		<figure class="work-image">
+			<video
+				src={work.data.video}
+				controls
+				preload="none" 
+				style="width:80%; border-radius:0.5rem; margin:1rem 0;"
+			>
+				お使いのブラウザは動画タグをサポートしていません。
+			</video>
+		</figure>
+	) : work.data.img ? (
+		<figure class="work-image">
+			<img
+				src={work.data.img}
+				alt={work.data.img_alt || ''}
+				style="width:80%; border-radius:0.5rem; margin:1rem 0;"
+			/>
+		</figure>
+	) : null}
+
+	<div class="modal-content">
+		<Content />
+		
+		{/* リンク集の表示 */}
+		{work.data.links && work.data.links.length > 0 && (
+			<>
+				<br/>
+				<p><strong>関連リンク：</strong></p>
+				<ul>
+					{work.data.links.map(link => (
+						<li><a href={link.url} target="_blank" rel="noopener noreferrer">{link.label}</a></li>
+					))}
+				</ul>
+			</>
+		)}
+	</div>
+</dialog>
+
+<style>
+	/* ===== Work modal (common) ===== */
+	.work-modal {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: min(90vw, 1500px);
+		max-height: 130vh;
+		overflow-y: auto;
+		padding: 3.5rem 4rem;
+		border: none;
+		border-radius: 1.25rem;
+		box-shadow: 0 14px 45px rgba(0, 0, 0, 0.55);
+		z-index: 1000;
+		background-color: var(--gray-900);
+		color: var(--gray-0);
+		background-image: none !important;
+		mix-blend-mode: normal !important;
+	}
+
+	/* Safari fallback */
+	@supports not (backdrop-filter: none) {
+		.work-modal {
+			inset: 0;
+			margin: auto;
+			transform: none;
+			display: none;
+		}
+		.work-modal[open] {
+			display: block;
+		}
+		.work-modal::backdrop {
+			content: '';
+			position: fixed;
+			inset: 0;
+		}
+	}
+
+	.work-modal::backdrop {
+		background: rgba(0, 0, 0, 0.55);
+	}
+
+	/* Close button */
+	.work-modal .close {
+		position: absolute;
+		top: 0.75rem;
+		right: 0.75rem;
+		background: none;
+		border: none;
+		font-size: 2rem;
+		line-height: 1;
+		cursor: pointer;
+		color: inherit;
+		padding: 0.5rem;
+		transition: color var(--theme-transition);
+	}
+	.work-modal .close:hover {
+		color: var(--accent-regular);
+	}
+
+	/* Header & Meta */
+	.work-modal h3 {
+		font-size: var(--text-3xl);
+		margin-bottom: 0.75rem;
+		padding-right: 3rem;
+		line-height: 1.2;
+	}
+
+	.work-modal .meta {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		font-size: 1rem;
+		color: var(--gray-400);
+		margin-bottom: 2rem;
+		border-bottom: 1px solid var(--gray-800);
+		padding-bottom: 1.25rem;
+		text-align: left;
+	}
+
+	@media (min-width: 50em) {
+		.work-modal .meta {
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: center;
+			gap: 1.5rem;
+		}
+	}
+
+	/* Modal Main Content Styles */
+	.modal-content :global(h1),
+	.modal-content :global(h2),
+	.modal-content :global(h3) {
+		margin-top: 2rem;
+		margin-bottom: 0.75rem;
+		font-size: 1.25rem;
+		color: var(--gray-0);
+		border-left: 4px solid var(--accent-regular);
+		padding-left: 0.75rem;
+	}
+
+	.modal-content :global(p) {
+		margin-bottom: 1rem;
+		line-height: 1.7;
+		color: var(--gray-200);
+	}
+
+	.modal-content :global(ul),
+	.modal-content :global(ol) {
+		padding-left: 1.5rem;
+		margin-bottom: 1.5rem;
+		color: var(--gray-200);
+	}
+
+	.modal-content :global(li) {
+		margin-bottom: 0.5rem;
+		line-height: 1.6;
+	}
+
+	.modal-content :global(strong) {
+		color: var(--gray-0);
+		font-weight: 700;
+	}
+
+	.modal-content :global(a) {
+		color: var(--accent-regular);
+		text-decoration: underline;
+		text-underline-offset: 0.2em;
+	}
+	.modal-content :global(a:hover) {
+		color: var(--accent-light);
+	}
+
+	/* Images in Markdown */
+	.modal-content :global(img),
+	.modal-content :global(video) {
+		max-width: 100%;
+		height: auto;
+		border-radius: 0.5rem;
+		margin: 1rem 0;
+		box-shadow: var(--shadow-sm);
+		border: 1px solid var(--gray-800);
+	}
+
+	/* Mobile Optimization */
+	@media (max-width: 40em) {
+		.work-modal {
+			width: 100vw;
+			height: 100vh;
+			max-height: 100vh;
+			border-radius: 0;
+			padding: 1.5rem;
+			inset: 0 !important;
+			transform: none !important;
+		}
+		.work-modal h3 {
+			font-size: 1.25rem;
+		}
+		.work-modal .close {
+			top: 0.5rem;
+			right: 0.5rem;
+		}
+	}
+</style>

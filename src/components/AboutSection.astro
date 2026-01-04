@@ -1,0 +1,122 @@
+---
+import Hero from './Hero.astro';
+---
+
+<section id="about" class="section-space">
+	<div class="wrapper stack gap-12 lg:gap-10">
+
+		<!-- セクション見出し -->
+		<header class="hero-center">
+		<Hero
+			title="About"
+			tagline="私の簡単な自己紹介です。"
+			align="center"
+		/>
+		</header>
+
+		<!-- ========== 本体：左写真 / 右プロフィール ========== -->
+		<div class="profile-grid">
+		<!-- 左：写真 -->
+		<div class="profile-photo">
+			<img
+			src="/img/my_photo.jpg"
+			alt="Hoi Kengo portrait"
+			width="320"
+			height="320"
+			loading="lazy"  
+			/>
+		</div>
+
+		<!-- 右：プロフィールテキスト -->
+		<div class="profile-text">
+			<p><strong>名前：</strong>帆井 健悟</p>
+			
+			<br>
+			
+			<p>
+			<strong>学歴：</strong><br />
+			・2020/03    渋谷教育学園幕張高等学校 卒業<br />
+			・2025/03    北海道大学 工学部 情報エレクトロニクス学科 情報理工学コース 卒業<br />
+			・2025/04~   北海道大学大学院 情報科学院 情報理工学コース 調和系工学研究室 在籍 (現在修士1年)
+			</p>
+
+			<br>
+			
+			<p>
+			<strong>趣味：</strong><br />
+			ランニング・CG制作
+			</p>
+
+			<br>
+			
+			<p>
+			<strong>将来の目標：</strong><br />
+			技術面・表現面の双方から、たくさんの人を魅了する作品作りに携わりたいと考えています。
+			</p>
+
+			<br>
+			
+			<p>
+			<strong>外部サイトへのリンク：</strong><br />
+				<ul>
+					<li>Github：<a href="https://github.com/kengo6053">https://github.com/kengo6053</a></li>
+					<!--
+					<li>vivivit(ポートフォリオサイト)：<a href="https://www.vivivit.com/kengo6053">https://www.vivivit.com/kengo6053</a></li>
+					-->
+				</ul>
+			</p>
+
+		</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	/* index.astro からスタイルを移動 */
+	.section-space { padding-block: 6rem; }
+	.hero-center {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		margin-bottom: 5rem;
+	}
+	.wrapper { max-width: 1500px; margin-inline: auto; padding-inline: 1rem; }
+	
+	.profile-grid {
+		max-width: 960px;
+		margin-inline: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		align-items: center;
+		text-align: center;
+		margin-top: 3rem;
+		margin-bottom: 3rem;
+	}
+
+	@media (min-width: 50em) {
+		.profile-grid {
+			display: grid;
+			grid-template-columns: 2fr 3fr;
+			align-items: center; 
+			text-align: left;
+			gap: 3rem;
+		}
+	}
+
+	.profile-photo img {
+		width: 100%;
+		max-width: 320px;
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+		align-items: center; 
+	}
+
+	.profile-text {
+		max-width: 48ch;
+		line-height: 1.6;
+	}
+</style>
