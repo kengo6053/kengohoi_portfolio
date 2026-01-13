@@ -32,12 +32,12 @@ const programmingWorks = allWorks.filter(work => work.data.classification === 'p
 	</Hero>
 	</header>
 
-	<section id="programming">
-		<h2 class="subsection-title">💻 Programming / Technical Works</h2>
-		<p class="subsection-desc">研究・開発・ツール制作など、技術的なアプローチによる制作物をまとめています。</p>
+	<section id="visual">
+		<h2 class="subsection-title">🎨 3D Modeling / Visual Works</h2>
+		<p class="subsection-desc">BlenderやUnityなどの3DCGツールを用い、ビジュアル表現や世界観づくりに挑戦した作品をまとめています。</p>
 		
 		<div class="works-grid">
-			{programmingWorks.map((work) => (
+			{visualWorks.map((work) => (
 				<>
 					<WorkCard work={work} />
 					<WorkModal work={work} />
@@ -46,12 +46,12 @@ const programmingWorks = allWorks.filter(work => work.data.classification === 'p
 		</div>
 	</section>
 
-	<section id="visual">
-		<h2 class="subsection-title">🎨 3D Modeling / Visual Works</h2>
-		<p class="subsection-desc">BlenderやUnityなどの3DCGツールを用い、ビジュアル表現や世界観づくりに挑戦した作品をまとめています。</p>
+	<section id="programming">
+		<h2 class="subsection-title">💻 Programming / Technical Works</h2>
+		<p class="subsection-desc">研究・開発・ツール制作など、技術的なアプローチによる制作物をまとめています。</p>
 		
 		<div class="works-grid">
-			{visualWorks.map((work) => (
+			{programmingWorks.map((work) => (
 				<>
 					<WorkCard work={work} />
 					<WorkModal work={work} />
